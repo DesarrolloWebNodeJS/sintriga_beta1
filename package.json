@@ -1,0 +1,10 @@
+{
+  "name": "sintriga",
+  "version": "1.0.0",
+  "description": "Una aplicación de intriga.",
+  "main": "index.js",
+  "repository": "git@github.com:fizzvr/sintriga.git",
+  "author": "Vladimir Rodríguez <fizzvr@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
