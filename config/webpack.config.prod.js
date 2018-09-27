@@ -10,6 +10,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
 
@@ -27,8 +28,8 @@ const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 const publicUrl = publicPath.slice(0, -1);
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
-const codexv = env.stringified['process.env'].VERSION;
-console.log('Running App version ' + codexv);
+const version = env.stringified['process.env'].VERSION;
+console.log('V. ' + version);
 // Assert this just to be safe.
 // Development builds of React are slow and not intended for production.
 if (env.stringified['process.env'].NODE_ENV !== '"production"') {
@@ -195,12 +196,13 @@ module.exports = {
     ],
   },
   plugins: [
+    new BundleAnalyzerPlugin(),
     new webpack.BannerPlugin({
       banner:  '/*\n' +
       '*\n' +
-      codexv +
+      version +
       '*\n' +
-      '* Copyright (c) 20205 Desarrollo Web NodeJS • Quito Ecuador \n' +
+      '* Copyright (c) 2018 Desarrollo Web NodeJS • Quito Ecuador \n' +
       '* Contacto / Soporte: https://www.facebook.com/desarrollowebnodejs/' +                    
       '*/\n\n'
     }),
