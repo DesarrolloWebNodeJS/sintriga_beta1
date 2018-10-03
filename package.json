@@ -6,5 +6,15 @@
   "repository": "git@github.com:fizzvr/sintriga.git",
   "author": "Vladimir Rodríguez <fizzvr@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "scripts": {
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js --env=jsdom",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build"
+  },
+  "engines": {
+    "node": ">=8"
+  }
 }
