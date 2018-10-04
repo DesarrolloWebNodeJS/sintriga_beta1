@@ -16,7 +16,6 @@ const Home = props => (
   <div>
     <Helmet>
       <title>SIntriga</title>
-      cs
     </Helmet>
     <p>Contador: {props.count}</p>
     <p>
@@ -57,9 +56,9 @@ Home.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  count: state.counter.count,
-  isIncrementing: state.counter.isIncrementing,
-  isDecrementing: state.counter.isDecrementing
+  count: state.contador.incrementadorI,
+  isIncrementing: state.contador.isIncrementing,
+  isDecrementing: state.contador.isDecrementing
 });
 
 const mapDispatchToProps = dispatch =>

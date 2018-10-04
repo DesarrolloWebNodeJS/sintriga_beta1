@@ -4,12 +4,13 @@ export const DECREMENT_REQUESTED = 'counter/DECREMENT_REQUESTED';
 export const DECREMENT = 'counter/DECREMENT';
 
 const initialState = {
-  count: 0,
+  incrementadorI: 7777,
   isIncrementing: false,
   isDecrementing: false
 };
 
 export default (state = initialState, action) => {
+  console.log(action);
   switch (action.type) {
     case INCREMENT_REQUESTED:
       return {
@@ -20,7 +21,7 @@ export default (state = initialState, action) => {
     case INCREMENT:
       return {
         ...state,
-        count: state.count + 1,
+        incrementadorI: state.incrementadorI + 1,
         isIncrementing: !state.isIncrementing
       };
 
@@ -33,7 +34,7 @@ export default (state = initialState, action) => {
     case DECREMENT:
       return {
         ...state,
-        count: state.count - 1,
+        incrementadorI: state.incrementadorI - 1,
         isDecrementing: !state.isDecrementing
       };
 
