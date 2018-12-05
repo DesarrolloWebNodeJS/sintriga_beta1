@@ -2,24 +2,23 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
-// import { createStore, applyMiddleware } from 'redux';
-// import ReduxPromise from 'redux-thunk';
-// import reducers from './reducers';
-import store, { history } from './store';
+import Rutas from './contenedores/Rutas';
+import configurarBase, { history } from './base';
+import './sintriga.css';
+import * as serviceWorker from './serviceWorker';
 
-import App from './App.sintriga';
-import registerServiceWorker from './registerServiceWorker';
+const store = configurarBase();
 
 console.log('====================================');
 console.log('> BETA.ini');
 render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <App />
+      <Rutas />
     </ConnectedRouter>
   </Provider>,
   document.getElementById('sintriga')
 );
-registerServiceWorker();
+serviceWorker.register();
 console.log('> BETA.fin');
 console.log('====================================');

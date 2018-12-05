@@ -13,7 +13,7 @@ module.exports = {
   moduleNameMapper: {
     '^react-native$': 'react-native-web'
   },
-  notify: false,
+  notify: true,
   setupTestFrameworkScriptFile: './src/__tests__/setup/setupEnzyme.js',
   snapshotSerializers: [
     'enzyme-to-json/serializer'

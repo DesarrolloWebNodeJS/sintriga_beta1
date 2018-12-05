@@ -1,6 +1,6 @@
 {
   "name": "sintriga",
-  "version": "1.0.0",
+  "version": "0.12.5",
   "description": "Una aplicación de intriga.",
   "main": "index.js",
   "repository": "git@github.com:fizzvr/sintriga.git",

@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import contador from './counter';
-
+import opciones from './opciones';
+import errores from './errores';
 
 export default combineReducers({
   rutas: routerReducer,
-  contador
+  opciones,
+  errores
 });

@@ -1,30 +1,15 @@
 {
-  "short_name": "sintriga",
-  "name": "SIntriga",
+  "short_name": "SINTRIGA",
+  "name": "Series de Intriga",
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "16x16",
+      "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
-    },
-    {
-      "src": "apple-touch-icon-precomposed.png",
-      "type": "image/png",
-      "sizes": "144x144"
-    },
-    {
-      "src": "tile.png",
-      "type": "image/png",
-      "sizes": "558x558"
-    },
-    {
-      "src": "tile-wide.png",
-      "type": "image/png",
-      "sizes": "558x270"
     }
   ],
-  "start_url": "./",
+  "start_url": ".",
   "display": "standalone",
-  "theme_color": "#0A0A0C",
-  "background_color": "#5fba7d"
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
 }
