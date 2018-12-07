@@ -1,7 +1,8 @@
-import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
 import { _success, _error, _clear } from '../../base/acciones/alerta.Acciones';
-import seriesMain from './seriesMain';
+import inicioMain from './inicioMain';
 
 const mapStateToProps = state => ({
   tipo: state.alerta.tipo,
@@ -14,7 +15,8 @@ const mapDispatchToProps = dispatch =>
     {
       _success,
       _error,
-      _clear
+      _clear,
+      changePage: () => push('/series')
     },
     dispatch
   );
@@ -22,4 +24,4 @@ const mapDispatchToProps = dispatch =>
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(seriesMain);
+)(inicioMain);

@@ -55,7 +55,7 @@ const BienvenidoPagina = props => {
               component={Link}
               style={{
                 color: '#000',
-                backgroundColor: '#DBD65C',
+                backgroundColor: '#FFC107',
                 borderRadius: '20px',
                 fontWeight: '600'
               }}

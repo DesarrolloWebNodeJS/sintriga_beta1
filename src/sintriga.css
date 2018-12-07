@@ -1,8 +1,8 @@
 body {
+  margin: 0;
   /* overflow: hidden; */
   background-color: rgb(30, 30, 30);
   /* transform: rotate(180deg); */
-  margin: 0;
   padding: 0;
 }
 
@@ -17,8 +17,8 @@ body {
   z-index: 1;
   opacity: 0;
   box-shadow: 0 0 400px rgba(0, 0, 0, 0.63) inset;
-  
 }
+
 .mostrando-fade {
   opacity: 1;
   z-index: 2;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import BienvenidoPagina from '../BienvenidoPagina';
+import BienvenidoPagina from '../BiePagina';
 import ProgramaPagina from '../ProgramaPagina';
 
 const Rutas = () => {

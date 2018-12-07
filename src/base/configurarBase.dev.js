@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import logg from 'redux-logger';
-import rootReducer from '../reductores';
+import rootReducer from './reductores';
 import { routerMiddleware } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 
@@ -28,7 +28,7 @@ const configurarBase = preloadedState => {
   );
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
-    module.hot.accept('../reductores', () => {
+    module.hot.accept('./reductores', () => {
       store.replaceReducer(rootReducer);
     });
   }

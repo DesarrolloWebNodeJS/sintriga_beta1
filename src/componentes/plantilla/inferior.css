@@ -1,0 +1,21 @@
+.inferior {
+  position: fixed;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.63);
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.aire {
+  padding: 0 7px 0 7px;
+}
+
+.link {
+  text-decoration: none;
+  color: #f8f8f8;
+  font-family: 'consolas';
+  letter-spacing: 0.5px;
+  font-size: 0.75rem;
+
+}
