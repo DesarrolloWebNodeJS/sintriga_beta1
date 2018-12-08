@@ -1,7 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import plantilla from '../../plantilla/index';
 import Series from '../../componentes/series';
+import Superior from '../../componentes/plantilla/superior';
+import Inferior from '../../componentes/plantilla/inferior';
 
 const ProgramaPagina = () => {
   return (
@@ -9,9 +10,11 @@ const ProgramaPagina = () => {
       <Helmet>
         <title>SINTRIGA</title>
       </Helmet>
+      <Superior propEstilo={{ background: 'rgba(0, 0, 0, 0.63)' }} propTitulo='Series de Intriga' />
       <Series />
+      <Inferior />
     </div>
   );
 };
 
-export default plantilla(ProgramaPagina);
+export default ProgramaPagina;
