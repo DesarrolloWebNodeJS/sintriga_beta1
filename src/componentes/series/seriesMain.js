@@ -5,32 +5,36 @@ import Alerta from '../alerta';
 import './seriesMain.css';
 
 class seriesMain extends Component {
+  constructor(props) {
+    super(props);
+    this.props._cmdlimpioAlerta();
+  }
+
   componentDidMount() {
-    this.props._success('Todas las series cargadas correctamente.');
+    this.props._cmdsatisfactoriaAlerta(
+      'Todas las series cargadas correctamente.'
+    );
   }
 
   render() {
-    const { tipo, mensaje, color } = this.props;
+    const { tipo, mensaje } = this.props;
     return (
       <div className='seriesMain'>
-        <h2>Welcome to Account Tracking Website</h2>
-        {mensaje && (
-          <Alerta mensaje={mensaje}/>
-        )}
+        {mensaje && <Alerta mensaje={mensaje} tipo={tipo} />}
         <Loader />
-        <p>{tipo + mensaje + color} NO NAM</p>
       </div>
     );
   }
 }
 
 seriesMain.propTypes = {
-  _success: PropTypes.func.isRequired,
-  _error: PropTypes.func.isRequired,
-  _clear: PropTypes.func.isRequired,
+  _cmdsatisfactoriaAlerta: PropTypes.func.isRequired,
+  _cmderrorAlerta: PropTypes.func.isRequired,
+  _cmdadvertenciaAlerta: PropTypes.func.isRequired,
+  _cmdinfoAlerta: PropTypes.func.isRequired,
+  _cmdlimpioAlerta: PropTypes.func.isRequired,
   tipo: PropTypes.string,
-  mensaje: PropTypes.string,
-  color: PropTypes.string
+  mensaje: PropTypes.string
 };
 
 export default seriesMain;

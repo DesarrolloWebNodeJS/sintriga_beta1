@@ -11,14 +11,22 @@ import lander2 from '../../recursos/lander2.png';
 import lander3 from '../../recursos/lander3.png';
 
 class inicioMain extends Component {
-  componentDidMount() {
-    this.props._success('Conexión con el Servidor. OK.');
+  constructor(props) {
+    super(props);
+    this.props._cmdlimpioAlerta();
   }
+
+  componentDidMount() {
+    this.props._cmdinfoAlerta('Bienvenidos');
+  }
+
+  componentWillMount() {}
+
   render() {
-    const { mensaje } = this.props;
+    const { mensaje, tipo } = this.props;
     return (
       <Fondo imagenes={[lander1, lander2, lander3]}>
-        <Alerta mensaje={mensaje}/>
+        <Alerta mensaje={mensaje} tipo={tipo} />
         <div className='inicioMain'>
           <header className='inicioHeader'>
             <p>
@@ -26,7 +34,7 @@ class inicioMain extends Component {
               <br />
               Disfruta de las <b>1250</b> series que tenemos a tu disposición.
               <br />
-              Tenemos un grupo de WhatsApp para socializar.
+              Únete a nuestro grupo de WhatsApp.
             </p>
             <Button
               onClick={() => this.props.changePage()}
@@ -46,7 +54,7 @@ class inicioMain extends Component {
               rel='noopener noreferrer'
               target='_blank'
               >
-              Visitanos en Facebook
+              Visítanos en Facebook
             </a>
           </header>
         </div>
@@ -56,7 +64,9 @@ class inicioMain extends Component {
 }
 
 inicioMain.propTypes = {
-  _success: PropTypes.func.isRequired,
+  _cmdinfoAlerta: PropTypes.func.isRequired,
+  _cmdlimpioAlerta: PropTypes.func.isRequired,
+  tipo: PropTypes.string,
   mensaje: PropTypes.string,
   changePage: PropTypes.func.isRequired
 };

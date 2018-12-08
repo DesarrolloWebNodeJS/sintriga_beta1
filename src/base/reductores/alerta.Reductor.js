@@ -1,22 +1,37 @@
 import {
   ALERTA_SATISFACTORIA,
   ALERTA_ERROR,
+  ALERTA_ADVERTENCIA,
+  ALERTA_INFO,
   ALERTA_LIMPIAR
 } from '../acciones/constantes';
 
-export default (state = {}, action) => {
+const initialState = {
+  mensaje: '',
+  tipo: 'success'
+};
+
+export default (state = initialState, action) => {
   switch (action.type) {
     case ALERTA_SATISFACTORIA:
       return {
-        tipo: 'alert-success',
-        mensaje: action.mensaje,
-        color: action.color
+        tipo: 'success',
+        mensaje: action.mensaje
       };
     case ALERTA_ERROR:
       return {
-        tipo: 'alert-danger',
-        mensaje: action.mensaje,
-        color: action.color
+        tipo: 'error',
+        mensaje: action.mensaje
+      };
+    case ALERTA_ADVERTENCIA:
+      return {
+        tipo: 'warning',
+        mensaje: action.mensaje
+      };
+    case ALERTA_INFO:
+      return {
+        tipo: 'info',
+        mensaje: action.mensaje
       };
     case ALERTA_LIMPIAR:
       return {};

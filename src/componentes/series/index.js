@@ -1,20 +1,21 @@
-import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { _success, _error, _clear } from '../../base/acciones/alerta.Acciones';
+import { connect } from 'react-redux';
+import { _cmdsatisfactoriaAlerta, _cmderrorAlerta, _cmdadvertenciaAlerta, _cmdinfoAlerta, _cmdlimpioAlerta } from '../../base/acciones/alerta.Acciones';
 import seriesMain from './seriesMain';
 
 const mapStateToProps = state => ({
   tipo: state.alerta.tipo,
-  mensaje: state.alerta.mensaje,
-  color: state.alerta.color
+  mensaje: state.alerta.mensaje
 });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      _success,
-      _error,
-      _clear
+      _cmdsatisfactoriaAlerta,
+      _cmderrorAlerta,
+      _cmdadvertenciaAlerta,
+      _cmdinfoAlerta,
+      _cmdlimpioAlerta
     },
     dispatch
   );
