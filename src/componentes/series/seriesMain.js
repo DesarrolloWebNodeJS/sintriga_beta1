@@ -12,7 +12,7 @@ class seriesMain extends Component {
 
   componentDidMount() {
     this.props._cmdsatisfactoriaAlerta(
-      'Todas las series cargadas correctamente.'
+      'Series cargadas.'
     );
   }
 

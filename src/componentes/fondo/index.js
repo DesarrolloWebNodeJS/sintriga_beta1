@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
+import './fondo.css';
 
 const parallaxStyle = {
   parallax: {
@@ -17,7 +18,7 @@ class Fondo extends Component {
     var windowScrollTop = window.pageYOffset / 3;
     this.state = {
       imagenes: props.imagenes,
-      efectos: ['zoom', 'fade', 'zoom'],
+      efectos: ['fade', 'fade', 'fade'],
       currentSlide: 0,
       transform: 'translate3d(0,' + windowScrollTop + 'px,0)'
     };

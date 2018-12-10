@@ -28,7 +28,7 @@ const styles1 = theme => ({
     backgroundColor: theme.palette.error.dark
   },
   info: {
-    backgroundColor: theme.palette.primary.dark
+    backgroundColor: '#000'
   },
   warning: {
     backgroundColor: amber[700]
@@ -123,7 +123,7 @@ class CustomizedSnackbars extends React.Component {
             vertical: 'bottom',
             horizontal: 'right'
           }}
-          autoHideDuration={6000}
+          autoHideDuration={4500}
           onClose={this.handleClose}
           open={this.state.open}
           >

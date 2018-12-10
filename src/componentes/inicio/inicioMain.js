@@ -17,7 +17,7 @@ class inicioMain extends Component {
   }
 
   componentDidMount() {
-    this.props._cmdinfoAlerta('Bienvenidos');
+    this.props._cmdinfoAlerta('Version 1.0.0');
   }
 
   componentWillMount() {}
@@ -32,7 +32,7 @@ class inicioMain extends Component {
             <p>
               Apasionados por la intriga, el crimen y la ciencia.
               <br />
-              Disfruta de las <b>1250</b> series que tenemos a tu disposición.
+              Disfruta de alrededor de <b>4000</b> series que tenemos a tu disposición.
               <br />
               Únete a nuestro grupo de WhatsApp.
             </p>

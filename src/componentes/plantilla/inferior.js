@@ -8,7 +8,7 @@ const inferior = () => {
     <footer className='inferior'>
       <Typography className='aire'>
         <Link className='link' to={'/'}>
-          &copy; 2018 SINTRIGA
+          &copy; 2019 SINTRIGA
         </Link>
       </Typography>
       <Typography className='aire'>
