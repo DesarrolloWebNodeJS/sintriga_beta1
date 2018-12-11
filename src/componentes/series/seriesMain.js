@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import Loader from '../loader';
 import Alerta from '../alerta';
 import './seriesMain.css';
+import ListaSimpleVista from './ListaSimpleVista';
 
 class seriesMain extends Component {
   constructor(props) {
     super(props);
-    this.props._cmdlimpioAlerta();
+    // this.props._cmdlimpioAlerta();
   }
 
   componentDidMount() {
@@ -15,16 +16,18 @@ class seriesMain extends Component {
   }
 
   render() {
-    const { tipo, mensaje } = this.props;
+    const { catSeries, estaCargando, tipo, mensaje } = this.props;
     return (
       <div className='seriesMain'>
-        {mensaje && <Alerta mensaje={mensaje} tipo={tipo} />}
-        <Loader />
+        {estaCargando && <Loader />}
+        {!estaCargando && <Alerta mensaje={mensaje} tipo={tipo} />}
+        {!estaCargando && <ListaSimpleVista series={catSeries} />}
       </div>
     );
   }
 }
 
+// {mensaje && <Alerta mensaje={mensaje} tipo={tipo} />}
 seriesMain.propTypes = {
   _cmdsatisfactoriaAlerta: PropTypes.func.isRequired,
   _cmderrorAlerta: PropTypes.func.isRequired,
@@ -33,7 +36,9 @@ seriesMain.propTypes = {
   _cmdlimpioAlerta: PropTypes.func.isRequired,
   _cmdgetSeries: PropTypes.func.isRequired,
   tipo: PropTypes.string,
-  mensaje: PropTypes.string
+  mensaje: PropTypes.string,
+  catSeries: PropTypes.array,
+  estaCargando: PropTypes.bool
 };
 
 export default seriesMain;

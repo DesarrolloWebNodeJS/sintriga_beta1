@@ -34,7 +34,9 @@ export default (state = initialState, action) => {
         mensaje: action.mensaje
       };
     case ALERTA_LIMPIAR:
-      return {};
+      return {
+        ...state
+      };
     default:
       return state;
   }

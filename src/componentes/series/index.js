@@ -6,7 +6,9 @@ import seriesMain from './seriesMain';
 
 const mapStateToProps = state => ({
   tipo: state.alerta.tipo,
-  mensaje: state.alerta.mensaje
+  mensaje: state.alerta.mensaje,
+  catSeries: state.series.catSeries,
+  estaCargando: state.series.estaCargando
 });
 
 const mapDispatchToProps = dispatch =>

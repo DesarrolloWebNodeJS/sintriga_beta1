@@ -1,11 +1,12 @@
 import {
-  // ALERTA_SATISFACTORIA,
+  ALERTA_SATISFACTORIA,
   ALERTA_ERROR,
   // ALERTA_ADVERTENCIA,
   // ALERTA_INFO,
-  // ALERTA_LIMPIAR,
+  ALERTA_LIMPIAR,
   CAT_SERIES_SOLICITA,
-  CAT_SERIES_RECIBE
+  CAT_SERIES_RECIBE,
+  CAT_SERIES_ERROR
 } from './constantes';
 
 export const _cmdgetSeries = () => {
@@ -17,12 +18,19 @@ export const _cmdgetSeries = () => {
           type: CAT_SERIES_RECIBE,
           payload: response.data
         });
+        dispatch({
+          type: ALERTA_SATISFACTORIA, mensaje: response.statusText
+        });
       })
       .catch(error => {
         dispatch({ type: ALERTA_ERROR, mensaje: error.message });
+        dispatch({ type: CAT_SERIES_ERROR });
       });
       dispatch({
         type: CAT_SERIES_SOLICITA
+      });
+      dispatch({
+        type: ALERTA_LIMPIAR
       });
   };
 };
