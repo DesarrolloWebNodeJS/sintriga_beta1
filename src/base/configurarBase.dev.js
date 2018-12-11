@@ -10,7 +10,7 @@ export const history = createHistory();
 
 const configurarBase = preloadedState => {
   const axiosInstance = axios.create({
-    baseURL: 'http://localhost:5500/api'
+    baseURL: 'http://localhost:2326/'
   });
 
   const composeEnhancers =

@@ -1,6 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { _cmdsatisfactoriaAlerta, _cmderrorAlerta, _cmdadvertenciaAlerta, _cmdinfoAlerta, _cmdlimpioAlerta } from '../../base/acciones/alerta.Acciones';
+import { _cmdgetSeries } from '../../base/acciones/series.Acciones';
 import seriesMain from './seriesMain';
 
 const mapStateToProps = state => ({
@@ -15,7 +16,8 @@ const mapDispatchToProps = dispatch =>
       _cmderrorAlerta,
       _cmdadvertenciaAlerta,
       _cmdinfoAlerta,
-      _cmdlimpioAlerta
+      _cmdlimpioAlerta,
+      _cmdgetSeries
     },
     dispatch
   );

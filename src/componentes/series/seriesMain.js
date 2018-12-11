@@ -11,9 +11,7 @@ class seriesMain extends Component {
   }
 
   componentDidMount() {
-    this.props._cmdsatisfactoriaAlerta(
-      'Series cargadas.'
-    );
+    this.props._cmdgetSeries();
   }
 
   render() {
@@ -33,6 +31,7 @@ seriesMain.propTypes = {
   _cmdadvertenciaAlerta: PropTypes.func.isRequired,
   _cmdinfoAlerta: PropTypes.func.isRequired,
   _cmdlimpioAlerta: PropTypes.func.isRequired,
+  _cmdgetSeries: PropTypes.func.isRequired,
   tipo: PropTypes.string,
   mensaje: PropTypes.string
 };
