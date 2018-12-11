@@ -13,7 +13,6 @@ import lander3 from '../../recursos/lander3.png';
 class inicioMain extends Component {
   constructor(props) {
     super(props);
-    this.props._cmdlimpioAlerta();
   }
 
   componentDidMount() {
