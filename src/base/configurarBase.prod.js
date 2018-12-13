@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reductores';
-import { routerMiddleware } from 'react-router-redux';
+import { routerMiddleware } from 'connected-react-router';
 import createHistory from 'history/createBrowserHistory';
 
 export const history = createHistory();

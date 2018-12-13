@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
+import { connectRouter } from 'connected-react-router';
 // import opciones from './opciones';
 // import errores from './errores';
 import alertaReductor from './alerta.Reductor';
 import seriesReductor from './series.Reductor';
 
-export default combineReducers({
-  rutas: routerReducer,
+export default (history) => combineReducers({
+  router: connectRouter(history),
   alerta: alertaReductor,
   series: seriesReductor
 });

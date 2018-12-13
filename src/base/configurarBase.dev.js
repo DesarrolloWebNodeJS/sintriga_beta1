@@ -3,7 +3,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import logg from 'redux-logger';
 import rootReducer from './reductores';
-import { routerMiddleware } from 'react-router-redux';
+import { routerMiddleware } from 'connected-react-router';
 import createHistory from 'history/createBrowserHistory';
 
 export const history = createHistory();
@@ -22,7 +22,7 @@ const configurarBase = preloadedState => {
     logg
   ];
   const store = createStore(
-    rootReducer,
+    rootReducer(history),
     preloadedState,
     composeEnhancers(applyMiddleware(...middleware))
   );
