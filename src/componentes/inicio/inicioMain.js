@@ -3,12 +3,15 @@ import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 // NOTA: Incluir el logo posteriormente
 // import logo from './cloud.svg';
+import Escribiendo from '../typing';
 import Alerta from '../alerta';
 import './inicioMain.css';
 import Fondo from '../fondo';
 import lander1 from '../../recursos/lander1.png';
 import lander2 from '../../recursos/lander2.png';
 import lander3 from '../../recursos/lander3.png';
+
+const mensajes = ['Disfruta de alrededor de 4000 series que tenemos a tu disposición.', 'Únete a nuestro grupo de WhatsApp.'];
 
 class inicioMain extends Component {
   constructor(props) {
@@ -28,13 +31,7 @@ class inicioMain extends Component {
         <Alerta mensaje={mensaje} tipo={tipo} />
         <div className='inicioMain'>
           <header className='inicioHeader'>
-            <p>
-              Apasionados por la intriga, el crimen y la ciencia.
-              <br />
-              Disfruta de alrededor de <b>4000</b> series que tenemos a tu disposición.
-              <br />
-              Únete a nuestro grupo de WhatsApp.
-            </p>
+            <Escribiendo mensajes={mensajes}/>
             <Button
               onClick={() => this.props.changePage()}
               style={{
