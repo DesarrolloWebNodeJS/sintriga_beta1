@@ -1,8 +1,9 @@
 [
   {
-    "titulo": "24 horas antes de morir",
+    "titulo": "24 HORAS ANTES DE MORIR",
     "descripcion": "",
     "favorito": false,
+    "img": "http://images.citv.es/images/citv/prg/000072121.jpg",
     "capitulos": [
       {
         "id": 1,
@@ -90,6 +91,7 @@
     "titulo": "CRIMENES IMPERFECTOS AUSTRALIA",
     "descripcion": "",
     "favorito": false,
+    "img": "http://images.citv.es/images/citv/prg/0000721201.jpg",
     "capitulos": [
       {
         "id": 1,
@@ -177,6 +179,7 @@
     "titulo": "YO FUI UN ASESINO",
     "descripcion": "",
     "favorito": false,
+    "img": "http://images.citv.es/images/citv/prg/0002721201.jpg",
     "capitulos": [
       {
         "id": 1,
