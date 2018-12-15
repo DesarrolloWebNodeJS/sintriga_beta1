@@ -6,7 +6,6 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-// import tileData from './tileData';
 
 const styles = ({
   root: {
@@ -18,7 +17,6 @@ const styles = ({
   gridList: {
     width: 500,
     height: 450,
-    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: 'translateZ(0)'
   },
   titleBar: {
@@ -30,26 +28,6 @@ const styles = ({
     color: '#ffc107'
   }
 });
-
-/* ¿
-*
- * The example data is structured as follows:
- *
- * import image from 'path/to/image.jpg';
- * [etc...]
- *
- * const tileData = [
- *   {
- *     img: image,
- *     title: 'Image',
- *     author: 'author',
- *     featured: true,
- *   },
- *   {
- *     [etc...]
- *   },
- * ];
- */
 
 function AdvancedGridList(props) {
   const { classes, tileData } = props;

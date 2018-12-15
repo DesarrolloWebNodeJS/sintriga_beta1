@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 // NOTA: Incluir el logo posteriormente
-// import logo from './cloud.svg';
 import Escribiendo from '../typing';
 import Alerta from '../alerta';
 import './inicioMain.css';
@@ -21,8 +20,6 @@ class inicioMain extends Component {
   componentDidMount() {
     this.props._cmdinfoAlerta('Version 1.0.0');
   }
-
-  componentWillMount() {}
 
   render() {
     const { mensaje, tipo } = this.props;
