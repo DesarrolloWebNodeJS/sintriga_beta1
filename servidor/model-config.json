@@ -1,0 +1,66 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "db"
+  },
+  "AccessToken": {
+    "dataSource": "db",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": false
+  },
+  "cat_motor": {
+    "dataSource": "MONGO_API_567",
+    "public": true
+  },
+  "cat_suspencion": {
+    "dataSource": "MONGO_API_567",
+    "public": true
+  },
+  "cat_electrico": {
+    "dataSource": "MONGO_API_567",
+    "public": true
+  },
+  "cat_carroceria": {
+    "dataSource": "MONGO_API_567",
+    "public": true
+  },
+  "cat_aire": {
+    "dataSource": "MONGO_API_567",
+    "public": true
+  },
+  "cat_otros": {
+    "dataSource": "MONGO_API_567",
+    "public": true
+  },
+  "cat_marcas": {
+    "dataSource": "MONGO_API_567",
+    "public": true
+  }
+}
