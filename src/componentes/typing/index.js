@@ -17,7 +17,7 @@ const Escribiendo = ({ mensajes }) => {
 };
 
 Escribiendo.propTypes = {
-  mensajes: PropTypes.string.isRequired
+  mensajes: PropTypes.array.isRequired
 };
 
 export default Escribiendo;
