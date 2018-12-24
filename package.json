@@ -68,6 +68,7 @@
     "connect-mongo": "^2.0.3",
     "connected-react-router": "6.0.0",
     "cookie-parser": "^1.4.3",
+    "cors": "^2.8.5",
     "express-flash": "0.0.2",
     "express-session": "^1.15.6",
     "express-state": "^1.4.0",
