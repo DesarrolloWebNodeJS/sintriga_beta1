@@ -1,0 +1,14 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "API-SEVER-SINTRIGA": {
+    "name": "API-SEVER-SINTRIGA",
+    "host": "localhost",
+    "port": 27017,
+    "url": "mongodb://localhost:27017/api-sintriga",
+    "database": "api-sintriga",
+    "connector": "mongodb"
+  }
+}

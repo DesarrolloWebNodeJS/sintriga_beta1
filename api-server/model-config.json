@@ -14,28 +14,28 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "API-SEVER-SINTRIGA"
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "API-SEVER-SINTRIGA",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "API-SEVER-SINTRIGA",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "API-SEVER-SINTRIGA",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "API-SEVER-SINTRIGA",
     "public": false
   },
   "Note": {
-    "dataSource": "db"
+    "dataSource": "API-SEVER-SINTRIGA"
   }
 }

@@ -11,14 +11,7 @@ var isBeta = !!process.env.BETA;
 expressState.extend(app);
 app.set('state namespace', '__sintriga__');
 app.set('port', process.env.PORT || 2326);
-/* app.set('views', path.join(__dirname, 'views'));
-app.engine('.hbs', exphbs({
-  defaultLayout: 'main',
-  layoutsDir: path.join(app.get('views'), 'layouts'),
-  partialsDir: path.join(app.get('views'), 'partials'),
-  extname: '.hbs'
-})); */
-app.set('view engine', '.hbs');
+
 app.use(loopback.token());
 app.disable('x-powered-by');
 
@@ -34,6 +27,9 @@ console.log('> Passport OK');
 app.start = _.once(function() {
   app.listen(app.get('port'), function() {
     app.emit('started');
+    var baseUrl = app.get('url').replace(/\/$/, '');
+    console.log('Web server listening at: %s', baseUrl);
+
     console.log(
       'sintriga servidor escuchando en %d en %s',
       app.get('port'),
@@ -46,7 +42,6 @@ app.start = _.once(function() {
     }
   });
 });
-
 
 module.exports = app;
 
