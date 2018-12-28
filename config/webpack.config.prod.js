@@ -13,6 +13,7 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
+const now = moment(new Date()).format('YYYY-MM-DD');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -202,7 +203,7 @@ module.exports = {
       '* Desarrollo Web NodeJS • Quito Ecuador Copyright (c) 2019 \n' +
       '* Contacto / Soporte: https://www.facebook.com/desarrollowebnodejs/ \n' +
       '* Versión: ' + version + '\n' +
-      '* ID de compilación: ' + Date.now() + '\n\n'
+      '* Fecha de compilación: ' + now + '\n\n'
     }),
     new HtmlWebpackPlugin({
       inject: true,
