@@ -3,6 +3,7 @@ require('dotenv').load();
 var _ = require('lodash'),
   loopback = require('loopback'),
   boot = require('loopback-boot'),
+  logger = require('./logger'),
   expressState = require('express-state');
 
 var app = loopback();
@@ -28,18 +29,7 @@ app.start = _.once(function() {
   app.listen(app.get('port'), function() {
     app.emit('started');
     var baseUrl = app.get('url').replace(/\/$/, '');
-    console.log('Web server listening at: %s', baseUrl);
-
-    console.log(
-      'sintriga servidor escuchando en %d en %s',
-      app.get('port'),
-      app.get('env')
-    );
-    if (isBeta) {
-      console.log('----------------------------------------');
-      console.log('---  sintriga esta es modo beta      ---');
-      console.log('----------------------------------------');
-    }
+    logger.appStarted(app.get('port'), baseUrl, isBeta);
   });
 });
 
