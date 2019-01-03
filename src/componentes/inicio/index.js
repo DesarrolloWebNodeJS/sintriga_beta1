@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { _cmdsatisfactoriaAlerta, _cmderrorAlerta, _cmdadvertenciaAlerta, _cmdinfoAlerta, _cmdlimpioAlerta } from '../../base/acciones/alerta.Acciones';
 import inicioMain from './inicioMain';
 import { push } from 'connected-react-router';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = state => ({
   tipo: state.alerta.tipo,
@@ -22,7 +23,7 @@ const mapDispatchToProps = dispatch =>
     dispatch
   );
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(inicioMain);
+)(inicioMain));

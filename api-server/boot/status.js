@@ -37,30 +37,83 @@
 };
 */
 var parseurl = require('parseurl');
+var moment = require('moment');
+const timeago = require('timeago.js');
+
+const timeagoInstance = timeago();
 
 module.exports = function(app) {
+  console.log('> Status');
+  const started = new Date();
+  const ahora = moment(new Date()).format('YYYY-MM-DD');
+  const hace = timeagoInstance.format(new Date('12/01/2018'));
+  const daysRunning = moment().diff(new Date('12/01/2018'), 'days');
+
   app.use(function(req, res, next) {
     if (!req.session.views) {
       req.session.views = {};
     }
-    console.log('Cookies: ', req.cookies);
     // get the url pathname
     var pathname = parseurl(req).pathname;
 
     // count the views
     req.session.views[pathname] = (req.session.views[pathname] || 0) + 1;
-
+    app.locals.message = req.flash('message');
+    app.locals.success = req.flash('success');
+    app.locals.user = req.user;
     next();
   });
 
+  app.get('/lb', app.loopback.status());
 
-  app.get('/foo', function(req, res, next) {
-    res.send('you viewed this page ' + req.session.views['/foo'] + ' times ' + req.cookies);
+  app.get('/es', function(req, res) {
+    // res.send('you viewed this page ' + req.session.views['/es'] + ' times ' + req.cookies);
+    // res.send('you viewed this page ' + req.session.views['/es'] + ' times ' + req.cookies);
+    const cont = req.session.views['/es'];
+    const on = (Date.now() - Number(started)) / 1000;
+/*     res.json({
+      comienzo: started,
+      vistaPagina: cont,
+      secretCookie: req.secret,
+      enLinea: on
+    }); */
+    res.json({
+      comienzo: started,
+      ahora: ahora,
+      hace: hace,
+      diasCorriendo: daysRunning,
+      vistaPagina: cont,
+      cookies: req.secret,
+      enLinea: on
+    });
   });
 
-  app.get('/bar', function(req, res, next) {
-    res.send('you viewed this page ' + req.session.views['/bar'] + ' times ' + req.cookies);
+  app.get('/test', function(req, res) {
+    res.send(
+      'you viewed this page ' +
+        req.session.views['/test'] +
+        ' times '
+    );
   });
-
 };
 
+// const message = 'NEMESYSTEM - APP!';
+/* var path = require('path');
+
+module.exports = function(app) {
+  console.log('> Inicio');
+  var router = app.loopback.Router();
+  router.get('*', index);
+
+  app.use(router);
+
+  function index(req, res) {
+
+    return res.sendFile(path.join(__dirname, '../../cliente', 'index.html'));
+  }
+};
+ */
+/*
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, '../cliente', 'index.html'));
+}); */

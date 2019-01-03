@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 // NOTA: Incluir el logo posteriormente
 import Escribiendo from '../typing';
 import Alerta from '../alerta';
@@ -30,13 +31,14 @@ class inicioMain extends Component {
           <header className='inicioHeader'>
             <Escribiendo mensajes={mensajes}/>
             <Button
-              onClick={() => this.props.changePage()}
+              component={ Link }
               style={{
                 color: '#000',
                 backgroundColor: '#FFC107',
                 borderRadius: '20px',
                 fontWeight: '600'
               }}
+              to='/series'
               variant='outlined'
               >
               todas las series de intriga aquí

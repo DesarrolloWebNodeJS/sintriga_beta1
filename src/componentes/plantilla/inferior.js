@@ -21,6 +21,11 @@ const inferior = () => {
           Privacidad
         </Link>
       </Typography>
+      <Typography className='aire'>
+        <Link className='link' to={'/es'}>
+          Estado
+        </Link>
+      </Typography>
     </footer>
   );
 };

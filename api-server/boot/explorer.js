@@ -25,12 +25,12 @@ module.exports = function mountLoopBackExplorer(app) {
     } */
 
     var restApiRoot = app.get('restApiRoot');
-    var mountPath = '/explorer';
+    var mountPath = '/db';
 
     console.log('> mountLoopBackExplorer');
     explorer(app, { basePath: restApiRoot, mountPath });
     app.once('started', function() {
       var baseUrl = app.get('url').replace(/\/$/, '');
-    console.log('Sintriga app REST API at %s%s', baseUrl, mountPath);
+    console.log('REST API en %s%s', baseUrl, mountPath);
   });
 };

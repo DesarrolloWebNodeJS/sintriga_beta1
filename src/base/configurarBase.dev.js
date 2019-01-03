@@ -1,42 +1,42 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-// import axios from 'axios';
-// import thunk from 'redux-thunk';
-// import logg from 'redux-logger';
-import { routerMiddleware } from 'connected-react-router';
-import createHistory from 'history/createBrowserHistory';
+import axios from 'axios';
+import thunk from 'redux-thunk';
+import logg from 'redux-logger';
+// import { routerMiddleware } from 'connected-react-router';
+// import createHistory from 'history/createBrowserHistory';
 // import rootReducer from './rootReducer';
 import rootReducer from './reductores';
 
-export const history = createHistory();
+// export const history = createHistory();
 
-/* const configurarBase = preloadedState => {
+const configurarBase = preloadedState => {
   const axiosInstance = axios.create({
-    baseURL: 'http://localhost:2326/'
+    baseURL: 'http://localhost:3000/'
   });
 
   const composeEnhancers =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
   const middleware = [
-    routerMiddleware(history),
     thunk.withExtraArgument(axiosInstance),
     logg
   ];
   const store = createStore(
-    rootReducer(history),
+    rootReducer,
     preloadedState,
     composeEnhancers(applyMiddleware(...middleware))
   );
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
     module.hot.accept('./reductores', () => {
-      store.replaceReducer(rootReducer(history));
+      store.replaceReducer(rootReducer);
     });
   }
   return store;
 };
 export default configurarBase;
-*/
+
+/*
 
 export default function configureStore() {
   const routerMiddlewaree = routerMiddleware(history);
@@ -47,5 +47,5 @@ export default function configureStore() {
     compose(applyMiddleware(...middlewares))
   );
   return store;
-}
+} */
 
