@@ -13,6 +13,7 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
+const moment = require('moment');
 const now = moment(new Date()).format('YYYY-MM-DD');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
