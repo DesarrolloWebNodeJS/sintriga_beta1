@@ -46,7 +46,7 @@ function AdvancedGridList(props) {
               }
               actionPosition='left'
               className={classes.titleBar}
-              title={tile.titulo}
+              title={tile.title}
               titlePosition='top'
             />
           </GridListTile>
