@@ -12,7 +12,7 @@ import {
 export const _cmdgetSeries = () => {
   return (dispatch, getState, apiSeries) => {
     apiSeries
-      .get('/Notes')
+      .get('/notes')
       .then(response => {
         dispatch({
           type: CAT_SERIES_RECIBE,
