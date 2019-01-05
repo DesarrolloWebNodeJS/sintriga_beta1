@@ -6,13 +6,27 @@ var _ = require('lodash'),
   logger = require('./logger'),
   expressState = require('express-state');
 
-var app = loopback();
-var isBeta = !!process.env.BETA;
+  var app = loopback();
+  var isBeta = !!process.env.BETA;
+/*
+  NOTA: CORS es para compartir recursos entre origenes para propósitos de desarrollo del frontend.
+  var whitelist = ['http://localhost:4000', 'http://localhost:5000'];
+  var corsOptions = {
+    origin: function(origin, callback) {
+      if (whitelist.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error('No permitido por CORS'));
+    }
+  }
+}; */
+process.env.PORT = 5000;
 
 expressState.extend(app);
 app.set('state namespace', '__sintriga__');
-app.set('port', process.env.PORT || 2326);
+app.set('port', process.env.PORT);
 
+// app.use(cors(corsOptions));
 app.use(loopback.token());
 app.disable('x-powered-by');
 
