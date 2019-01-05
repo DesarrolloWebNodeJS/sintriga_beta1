@@ -2,18 +2,17 @@ import axios from 'axios';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reductores';
-import { routerMiddleware } from 'connected-react-router';
-import createHistory from 'history/createBrowserHistory';
+// import { routerMiddleware } from 'connected-react-router';
+// import createHistory from 'history/createBrowserHistory';
 
-export const history = createHistory();
+// export const history = createHistory();
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:5500/api'
+  baseURL: 'http://localhost:5000/api'
 });
 
 const middleware = [
-  thunk.withExtraArgument(axiosInstance),
-  routerMiddleware(history)
+  thunk.withExtraArgument(axiosInstance)
 ];
 
 const configurarBase = preloadedState => createStore(

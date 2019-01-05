@@ -11,7 +11,7 @@ import rootReducer from './reductores';
 
 const configurarBase = preloadedState => {
   const axiosInstance = axios.create({
-    baseURL: 'http://localhost:3000/'
+    baseURL: 'http://localhost:5000/api/'
   });
 
   const composeEnhancers =
