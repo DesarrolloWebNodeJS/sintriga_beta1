@@ -2,12 +2,14 @@ import {
   CAT_SERIES_SOLICITA,
   CAT_SERIES_RECIBE,
   CAT_SERIES_AGREGA,
-  CAT_SERIES_ERROR
+  CAT_SERIES_ERROR,
+  CAT_SERIES_NUEVO
 } from '../acciones/constantes';
 
 const initialState = {
   catSeries: [],
-  estaCargando: false
+  estaCargando: false,
+  mostrarNuevo: false
 };
 
 export default (state = initialState, action) => {
@@ -27,7 +29,13 @@ export default (state = initialState, action) => {
       return {
         ...state,
         catSeries: [...state.catSeries, action.payload],
-        estaCargando: false
+        estaCargando: false,
+        mostrarNuevo: false
+      };
+    case CAT_SERIES_NUEVO:
+      return {
+        ...state,
+        mostrarNuevo: !state.mostrarNuevo
       };
     case CAT_SERIES_ERROR:
       return {

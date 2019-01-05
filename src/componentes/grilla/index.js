@@ -31,13 +31,13 @@ const styles = ({
 
 function AdvancedGridList(props) {
   const { classes, tileData } = props;
-
+  const favorito = true;
   return (
     <div className={classes.root}>
       <GridList spacing={2} style={{width: '100%'}}>
         {tileData.map(tile => (
-          <GridListTile cols={tile.favorito ? 2 : 1} key={tile.img} rows={tile.favorito ? 2 : 1}>
-            <img alt={tile.titulo} src={tile.img} />
+          <GridListTile cols={favorito ? 2 : 1} key='' rows={favorito ? 2 : 1}>
+            <img alt={tile.content} src='' />
             <GridListTileBar
               actionIcon={
                 <IconButton className={classes.icon}>

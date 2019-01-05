@@ -1,8 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import Series from '../../componentes/series';
-import Superior from '../../componentes/plantilla/superior';
-import Inferior from '../../componentes/plantilla/inferior';
+import Superior from '../../componentes/superior';
+import Inferior from '../../componentes/inferior';
 
 const ProgramaPagina = () => {
   return (

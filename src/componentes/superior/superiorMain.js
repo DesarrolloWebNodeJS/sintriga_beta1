@@ -6,16 +6,23 @@ import Tooltip from '@material-ui/core/Tooltip';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import MenuIcono from '@material-ui/icons/Settings';
+import NuevoIcono from '@material-ui/icons/AddCircle';
+import AyudaIcono from '@material-ui/icons/LiveHelp';
 import { Link } from 'react-router-dom';
 import './superior.css';
 
-class superior extends Component {
+class superiorMain extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     const {
       propColor,
       propTitulo,
       propEstilo,
-      propPosicion
+      propPosicion,
+      _cmdmostrarNuevo
     } = this.props;
     return (
       <AppBar color={propColor} position={propPosicion} style={propEstilo}>
@@ -26,9 +33,9 @@ class superior extends Component {
             </Button>
           </div>
           <div className='superiorColor'>
-            <Tooltip title='Configuración'>
-              <IconButton aria-label='Ingreso' color='inherit'>
-                <MenuIcono />
+            <Tooltip title='Nuevo'>
+              <IconButton aria-label='Nuevo' color='inherit' onClick={_cmdmostrarNuevo}>
+                <NuevoIcono />
               </IconButton>
             </Tooltip>
             <Tooltip title='Configuración'>
@@ -36,14 +43,9 @@ class superior extends Component {
                 <MenuIcono />
               </IconButton>
             </Tooltip>
-            <Tooltip title='Configuración'>
-              <IconButton aria-label='Ingreso' color='inherit'>
-                <MenuIcono />
-              </IconButton>
-            </Tooltip>
-            <Tooltip title='Configuración'>
-              <IconButton aria-label='Ingreso' color='inherit'>
-                <MenuIcono />
+            <Tooltip title='Ayuda'>
+              <IconButton aria-label='Ayuda' color='inherit'>
+                <AyudaIcono />
               </IconButton>
             </Tooltip>
           </div>
@@ -53,17 +55,18 @@ class superior extends Component {
   }
 }
 
-superior.defaultProps = {
+superiorMain.defaultProps = {
   propTitulo: 'bienvenidos',
   propColor: 'inherit',
   propPosicion: 'static'
 };
 
-superior.propTypes = {
+superiorMain.propTypes = {
   propTitulo: PropTypes.string,
   propColor: PropTypes.string,
   propEstilo: PropTypes.object,
-  propPosicion: PropTypes.string
+  propPosicion: PropTypes.string,
+  _cmdmostrarNuevo: PropTypes.func
 };
 
-export default superior;
+export default superiorMain;

@@ -5,12 +5,13 @@ var _ = require('lodash'),
   boot = require('loopback-boot'),
   logger = require('./logger'),
   expressState = require('express-state');
+// var cors = require('cors');
 
   var app = loopback();
   var isBeta = !!process.env.BETA;
-/*
-  NOTA: CORS es para compartir recursos entre origenes para propósitos de desarrollo del frontend.
-  var whitelist = ['http://localhost:4000', 'http://localhost:5000'];
+
+// NOTA: CORS es para compartir recursos entre origenes para propósitos de desarrollo del frontend.
+/*   var whitelist = ['http://localhost:4000', 'http://localhost:5000'];
   var corsOptions = {
     origin: function(origin, callback) {
       if (whitelist.indexOf(origin) !== -1) {
@@ -20,6 +21,7 @@ var _ = require('lodash'),
     }
   }
 }; */
+
 process.env.PORT = 5000;
 
 expressState.extend(app);

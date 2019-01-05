@@ -4,6 +4,7 @@ import Loader from '../loader';
 import Alerta from '../alerta';
 import './seriesMain.css';
 import Grilla from '../grilla';
+import Dialog from '../dialog';
 // import ListaSimpleVista from './ListaSimpleVista';
 
 class seriesMain extends Component {
@@ -16,12 +17,13 @@ class seriesMain extends Component {
   }
 
   render() {
-    const { catSeries, estaCargando, tipo, mensaje } = this.props;
+    const { catSeries, estaCargando, tipo, mensaje, mostrarNuevo, _cmdmostrarNuevo, _cmdpostSeries } = this.props;
     return (
       <div className='seriesMain'>
         {estaCargando && <Loader />}
         {!estaCargando && <Alerta mensaje={mensaje} tipo={tipo} />}
         {!estaCargando && <Grilla tileData={catSeries} />}
+        {mostrarNuevo && <Dialog cmdmostrarNuevo={_cmdmostrarNuevo} cmdpostSeries={_cmdpostSeries} open={mostrarNuevo} />}
       </div>
     );
   }
@@ -34,10 +36,13 @@ seriesMain.propTypes = {
   _cmdinfoAlerta: PropTypes.func.isRequired,
   _cmdlimpioAlerta: PropTypes.func.isRequired,
   _cmdgetSeries: PropTypes.func.isRequired,
+  _cmdmostrarNuevo: PropTypes.func,
+  _cmdpostSeries: PropTypes.func,
   tipo: PropTypes.string,
   mensaje: PropTypes.string,
   catSeries: PropTypes.array,
-  estaCargando: PropTypes.bool
+  estaCargando: PropTypes.bool,
+  mostrarNuevo: PropTypes.bool
 };
 
 export default seriesMain;
