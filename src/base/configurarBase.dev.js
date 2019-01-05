@@ -8,10 +8,10 @@ import logg from 'redux-logger';
 import rootReducer from './reductores';
 
 // export const history = createHistory();
-
+// NOTA: Apunta a la IP real del servidor donde se aloja express.
 const configurarBase = preloadedState => {
   const axiosInstance = axios.create({
-    baseURL: 'http://localhost:5000/api/'
+    baseURL: 'http://192.168.100.10:5000/api/'
   });
 
   const composeEnhancers =
