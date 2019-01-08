@@ -41,6 +41,7 @@
 	```
 +Nota: Si usas [Yarn](https://yarnpkg.com/), puedes correr con el comando `yarn`.
 
+1. Renombrar el archivo *ejemplo.env* a *.env*, contiene variables de entorno que se cargaran con el módulo **dotenv**.
 
 1. Correr el servidor
 
