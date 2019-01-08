@@ -2,13 +2,11 @@ var parseurl = require('parseurl');
 var moment = require('moment');
 var timeago = require('timeago.js');
 
-const timeagoInstance = timeago();
-
 module.exports = function(app) {
   console.log('> Status');
   const started = new Date();
   const ahora = moment(new Date()).format('YYYY-MM-DD');
-  const hace = timeagoInstance.format(new Date('01/01/2019'));
+  const hace = timeago.format(new Date('01/01/2019'));
   const daysRunning = moment().diff(new Date('01/01/2019'), 'days');
 
   app.use(function(req, res, next) {
