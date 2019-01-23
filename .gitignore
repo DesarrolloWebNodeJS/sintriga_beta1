@@ -38,3 +38,4 @@ jspm_packages/
 /cliente
 yarn.lock
 package-lock.json
+/seed
