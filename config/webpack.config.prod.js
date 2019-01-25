@@ -2,7 +2,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
@@ -206,7 +206,7 @@ module.exports = {
       '* Versión: ' + version + '\n' +
       '* Fecha de compilación: ' + now + '\n\n'
     }),
-    new HtmlWebpackPlugin({
+    /* new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
       minify: {
@@ -221,7 +221,7 @@ module.exports = {
         minifyCSS: true,
         minifyURLs: true,
       },
-    }), 
+    }),  */
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
     // It is absolutely essential that NODE_ENV was set to production here.
