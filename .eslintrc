@@ -16,7 +16,10 @@
   "plugins": ["react", "jest", "import", "jsx-a11y"],
   "settings": {
     "import/ignore": ["node_modules", "\\.json$"],
-    "import/extensions": [".js", ".jsx"]
+    "import/extensions": [".js", ".jsx"],
+    "react": {
+      "version": "detect"
+    }
   },
   "globals": {
     "Promise": true,
