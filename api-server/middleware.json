@@ -14,12 +14,22 @@
   },
   "initial": {
     "compression": {},
+    "cors": {
+      "params": {
+        "origin": "*",
+        "credentials": true,
+        "maxAge": 86400
+      }
+    },
     "morgan": {
       "params": ":status :method :response-time ms - :url"
     }
   },
   "session": {
     "./middlewares/sessions.js": {}
+  },
+  "auth": {
+    "loopback#token": {}
   },
   "parse": {
     "body-parser#json": {},
