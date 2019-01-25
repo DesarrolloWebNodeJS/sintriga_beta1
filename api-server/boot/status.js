@@ -4,7 +4,7 @@ var timeago = require('timeago.js');
 
 module.exports = function(app) {
   console.log('> Status');
-  const started = new Date();
+  const inicio = moment(new Date('01/01/2019')).format('YYYY-MM-DD');
   const ahora = moment(new Date()).format('YYYY-MM-DD');
   const hace = timeago.format(new Date('01/01/2019'));
   const daysRunning = moment().diff(new Date('01/01/2019'), 'days');
@@ -28,10 +28,10 @@ module.exports = function(app) {
 
   app.get('/es', function(req, res) {
     const cont = req.session.views['/es'];
-    const on = (Date.now() - Number(started)) / 1000;
+    const on = (Date.now() - Number(inicio)) / 1000;
     res.json({
-      comienzo: started,
-      ahora: ahora,
+      inicio: inicio,
+      hoy: ahora,
       hace: hace,
       diasCorriendo: daysRunning,
       vistaPagina: cont,
