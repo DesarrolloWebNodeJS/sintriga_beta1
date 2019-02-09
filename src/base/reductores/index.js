@@ -3,9 +3,11 @@ import { combineReducers } from 'redux';
 // import opciones from './opciones';
 // import errores from './errores';
 import alertaReductor from './alerta.Reductor';
+import estadoReductor from './estado.Reductor';
 import seriesReductor from './series.Reductor';
 
 export default combineReducers({
   alerta: alertaReductor,
+  estado: estadoReductor,
   series: seriesReductor
 });

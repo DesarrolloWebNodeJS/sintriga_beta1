@@ -12,6 +12,10 @@ class seriesMain extends Component {
     super(props);
   }
 
+  componentWillMount() {
+    this.props._cmdlimpioAlerta();
+  }
+
   componentDidMount() {
     this.props._cmdgetSeries();
   }

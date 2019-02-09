@@ -10,3 +10,5 @@ export const CAT_SERIES_RECIBE = 'series/CAT_SERIES_RECIBE';
 export const CAT_SERIES_AGREGA = 'series/CAT_SERIES_AGREGA';
 export const CAT_SERIES_ERROR = 'series/CAT_SERIES_ERROR';
 export const CAT_SERIES_NUEVO = 'series/CAT_SERIES_NUEVO';
+// Estado
+export const ESTADO_RECIBE = 'estado/ESTADO_RECIBE';

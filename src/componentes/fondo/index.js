@@ -18,7 +18,8 @@ class Fondo extends Component {
     var windowScrollTop = window.pageYOffset / 3;
     this.state = {
       imagenes: props.imagenes,
-      efectos: ['fade', 'fade', 'fade'],
+      // Para varios efectos en cada imagen se establece una array con lo efectos. efectos: ['fade', 'right', 'top']
+      efectos: 'fade',
       currentSlide: 0,
       transform: 'translate3d(0,' + windowScrollTop + 'px,0)'
     };
@@ -60,11 +61,12 @@ class Fondo extends Component {
   render() {
     const { classes, children, imagenes } = this.props;
     const { efectos, currentSlide, transform } = this.state;
+    // efectos[i] para recorrer cada imagen y aplicar dicho efecto.
     const listaImagenes = imagenes.map((imagen, i) => {
       return (
         <div
-          className={`slide ${efectos[i]} ${
-            currentSlide === i ? 'mostrando-' + efectos[i] : ''
+          className={`slide ${efectos} ${
+            currentSlide === i ? 'mostrando-' + efectos : ''
           }`}
           key={i}
           style={{

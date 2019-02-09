@@ -26,6 +26,16 @@ const inferior = () => {
           Estado
         </Link>
       </Typography>
+      <Typography className='aire'>
+        <Link className='link' to={'/ingreso'}>
+          Ingreso
+        </Link>
+      </Typography>
+      <Typography className='aire'>
+        <Link className='link' to={'/registro'}>
+          Registro
+        </Link>
+      </Typography>
     </footer>
   );
 };

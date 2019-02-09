@@ -40,7 +40,8 @@ export default (state = initialState, action) => {
     case CAT_SERIES_ERROR:
       return {
         ...state,
-        estaCargando: false
+        estaCargando: false,
+        mostrarNuevo: false
       };
     default:
       return state;

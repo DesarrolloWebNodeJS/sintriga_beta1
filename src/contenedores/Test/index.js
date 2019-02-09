@@ -1,29 +1,23 @@
-import React from 'react';
-import { push } from 'connected-react-router';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
-const index = props => {
-  return (
-    <div>
-      <h1>Login</h1>
-      <button
-        onClick={() => {
-          props.push('/');
-        }}
-        type='button'
-        >
-        Click Me!
-      </button>
-    </div>
-  );
-};
+function mapStateToProps(state) {
+  return {
+    tipo: state.alerta.tipo,
+    mensaje: state.alerta.mensaje
+  };
+}
 
-index.propTypes = {
-  push: PropTypes.func
-};
+class PruebaPagina extends Component {
+  render() {
+    return (
+      <div>
+        <h1>Soy una PruebaPagina conectada.</h1>
+      </div>
+    );
+  }
+}
 
 export default connect(
-  null,
-  { push }
-)(index);
+  mapStateToProps,
+)(PruebaPagina);

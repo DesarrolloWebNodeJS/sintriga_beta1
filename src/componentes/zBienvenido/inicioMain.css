@@ -1,4 +1,4 @@
-.inicioMain {
+.bienvenidoMain {
   text-align: center;
 }
 
@@ -16,7 +16,7 @@
   }
 }
 
-.inicioHeader {
+.bienvenidoHeader {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,8 +26,11 @@
   color: white;
 }
 
-.inicioLink {
-  padding: 20px 0;
+.bienvenidoLink {
   color: #FFC107;
   text-decoration: none;
+}
+
+.bienvenidoAire {
+  margin-right: 10px;
 }

@@ -1,16 +1,12 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
-import Series from '../../componentes/series';
-import Superior from '../../componentes/superior';
+import Series from '../../componentes/zSeries';
+import Superior from '../../componentes/zSuperior';
 import Inferior from '../../componentes/inferior';
 
 const ProgramaPagina = () => {
   return (
     <div>
-      <Helmet>
-        <title>SINTRIGA</title>
-      </Helmet>
-      <Superior propEstilo={{ background: 'rgba(0, 0, 0, 0.63)' }} propTitulo='Series de Intriga' />
+      <Superior propEstilo={{ background: 'rgba(0, 0, 0, 0.63)' }} propTitulo='Catálogo de Series' />
       <Series />
       <Inferior />
     </div>

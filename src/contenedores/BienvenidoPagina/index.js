@@ -1,19 +1,18 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
-import Inicio from '../../componentes/inicio';
+import Bienvenido from '../../componentes/zBienvenido';
+import Superior from '../../componentes/zSuperior';
 import Inferior from '../../componentes/inferior';
+
 // TODO: implementar un progress bar y que cambie el texto
 
-const BiePagina = () => {
+const BienvenidoPagina = () => {
   return (
     <div>
-      <Helmet>
-        <title>Bienvenido</title>
-      </Helmet>
-      <Inicio />
+      <Superior propEstilo={{ background: 'rgba(0, 0, 0, 0.63)' }} propTitulo='Series de Intriga'/>
+      <Bienvenido />
       <Inferior />
     </div>
   );
 };
 
-export default BiePagina;
+export default BienvenidoPagina;

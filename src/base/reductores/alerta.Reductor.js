@@ -7,8 +7,8 @@ import {
 } from '../acciones/constantes';
 
 const initialState = {
-  mensaje: '',
-  tipo: 'success'
+  tipo: 'success',
+  mensaje: ''
 };
 
 export default (state = initialState, action) => {
