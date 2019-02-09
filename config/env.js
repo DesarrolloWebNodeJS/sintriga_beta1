@@ -62,7 +62,7 @@ const REACT_APP = /^REACT_APP_/i;
 
 function getClientEnvironment(publicUrl) {
   // TODO: Extraer la version desde el json, fecha de ultima compilación.
-  const myVersion = "0.0.1"
+  const myVersion = paths.appPackageJson;
   const raw = Object.keys(process.env)
     .filter(key => REACT_APP.test(key))
     .reduce(
@@ -73,7 +73,7 @@ function getClientEnvironment(publicUrl) {
       {
         // Useful for determining whether we’re running in production mode.
         // Most importantly, it switches React into the correct mode.
-        VERSION: myVersion,
+        VERSION: "hola",
         NODE_ENV: process.env.NODE_ENV || "development",
         // Useful for resolving the correct path to static assets in `public`.
         // For example, <img src={process.env.PUBLIC_URL + '/img/logo.png'} />.

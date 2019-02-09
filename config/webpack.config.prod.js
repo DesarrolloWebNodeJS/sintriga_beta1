@@ -2,7 +2,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
@@ -31,7 +31,9 @@ const publicUrl = publicPath.slice(0, -1);
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
 const version = env.stringified['process.env'].VERSION;
+
 console.log('V. ' + version);
+
 // Assert this just to be safe.
 // Development builds of React are slow and not intended for production.
 if (env.stringified['process.env'].NODE_ENV !== '"production"') {
@@ -39,7 +41,7 @@ if (env.stringified['process.env'].NODE_ENV !== '"production"') {
 }
 
 // Note: defined here because it will be used more than once.
-const cssFilename = 'recursos/css/[name].[contenthash:8].css';
+const cssFilename = 'recursos/css/[name].css';
 
 // ExtractTextPlugin expects the build output to be flat.
 // (See https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/27)
@@ -69,8 +71,8 @@ module.exports = {
     // Generated JS file names (with nested folders).
     // There will be one main bundle, and one file per asynchronous chunk.
     // We don't currently advertise code splitting but Webpack supports it.
-    filename: 'recursos/js/[name].[chunkhash:8].js',
-    chunkFilename: 'recursos/js/[name].[chunkhash:8].chunk.js',
+    filename: 'recursos/js/[name].js',
+    chunkFilename: 'recursos/js/[name].chunk.js',
     // We inferred the "public path" (such as / or /my-project) from homepage.
     publicPath: publicPath,
     // Point sourcemap entries to original disk location (format as URL on Windows)
@@ -198,7 +200,10 @@ module.exports = {
     ],
   },
   plugins: [
-    new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+      open: false
+    }),
     new webpack.BannerPlugin({
       banner: '\n* Desarrollo por:\n' +
       '* Desarrollo Web NodeJS • Quito Ecuador Copyright (c) 2019 \n' +
@@ -206,7 +211,7 @@ module.exports = {
       '* Versión: ' + version + '\n' +
       '* Fecha de compilación: ' + now + '\n\n'
     }),
-    /* new HtmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
       minify: {
@@ -221,7 +226,7 @@ module.exports = {
         minifyCSS: true,
         minifyURLs: true,
       },
-    }),  */
+    }), 
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
     // It is absolutely essential that NODE_ENV was set to production here.
