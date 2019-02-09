@@ -11,7 +11,7 @@ import rootReducer from './reductores';
 // NOTA: Apunta a la IP real del servidor donde se aloja express.
 const configurarBase = preloadedState => {
   const axiosInstance = axios.create({
-    baseURL: 'http://localhost:5000/'
+    baseURL: 'http://localhost:5000'
   });
 
   const composeEnhancers =
