@@ -1,9 +1,9 @@
 var parseurl = require('parseurl');
 var moment = require('moment');
 var timeago = require('timeago.js');
+const pkg = require('../../package.json');
 
 module.exports = function(app) {
-  console.log('> Status');
   const inicio = moment(new Date('01/01/2019')).format('YYYY-MM-DD');
   const ahora = moment(new Date()).format('YYYY-MM-DD');
   const hace = timeago.format(new Date('01/01/2019'));
@@ -28,19 +28,24 @@ module.exports = function(app) {
 
   app.get('/es', function(req, res) {
     const cont = req.session.views['/es'];
-    const on = (Date.now() - Number(inicio)) / 1000;
+    const version = pkg.version;
+
     res.json({
-      inicio: inicio,
-      hoy: ahora,
-      hace: hace,
-      diasCorriendo: daysRunning,
-      vistaPagina: cont,
-      cookies: req.secret,
-      enLinea: on
+      appVersion: version,
+      appInicio: inicio,
+      appHoy: ahora,
+      appHace: hace,
+      appDiasCorriendo: daysRunning,
+      appVistaPagina: cont,
+      appCookies: req.secret
     });
   });
 
   app.get('/test', function(req, res) {
-    res.send('you viewed this page ' + req.session.views['/test'] + ' times ');
+    res.send('Esta es una PRUEBA. Numero de peticiones a esta URL:  ' + req.session.views['/test'] + ' veces. ');
   });
 };
+
+console.log('====================================');
+console.log('> BOOT: Estado [✓]');
+console.log('====================================');

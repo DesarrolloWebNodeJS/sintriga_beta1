@@ -27,10 +27,15 @@ module.exports = function mountLoopBackExplorer(app) {
     var restApiRoot = app.get('restApiRoot');
     var mountPath = '/db';
 
-    console.log('> mountLoopBackExplorer');
     explorer(app, { basePath: restApiRoot, mountPath });
     app.once('started', function() {
       var baseUrl = app.get('url').replace(/\/$/, '');
-    console.log('REST API en %s%s', baseUrl, mountPath);
+    console.log('====================================');
+    console.log('> REST API en %s%s', baseUrl, mountPath);
+    console.log('====================================');
   });
 };
+
+console.log('====================================');
+console.log('> BOOT: LoopBackExplorer [✓]');
+console.log('====================================');

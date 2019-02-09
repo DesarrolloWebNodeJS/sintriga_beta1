@@ -1,7 +1,7 @@
 {
   "initial:before": {
     "loopback#favicon": {
-      "params": "$!../cliente/favicon.ico"
+      "params": "$!../public/favicon.ico"
     },
     "loopback#static": {
       "params": [

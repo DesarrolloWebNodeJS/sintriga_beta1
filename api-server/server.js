@@ -1,35 +1,24 @@
 require('dotenv').load();
 
-var _ = require('lodash'),
-  loopback = require('loopback'),
-  boot = require('loopback-boot'),
-  logger = require('./logger'),
-  expressState = require('express-state');
-// var cors = require('cors');
+const _ = require('lodash');
+const loopback = require('loopback');
+const boot = require('loopback-boot');
+const logger = require('./logger');
+const expressState = require('express-state');
+// const setupPassport = require('./component-passport');
+const pasaporte = require('./componentes-vr');
 
-  var app = loopback();
-  var isBeta = !!process.env.BETA;
-
-// NOTA: CORS es para compartir recursos entre origenes para propósitos de desarrollo del frontend.
-/*   var whitelist = ['http://localhost:4000', 'http://localhost:5000'];
-  var corsOptions = {
-    origin: function(origin, callback) {
-      if (whitelist.indexOf(origin) !== -1) {
-        callback(null, true);
-      } else {
-        callback(new Error('No permitido por CORS'));
-    }
-  }
-}; */
+const app = loopback();
+const isBeta = !!process.env.BETA;
 
 process.env.PORT = 5000;
 
 expressState.extend(app);
 app.set('state namespace', '__sintriga__');
 app.set('port', process.env.PORT);
-
-// app.use(cors(corsOptions));
-app.use(loopback.token());
+app.use(loopback.token({
+  model: app.models.accessToken
+}));
 app.disable('x-powered-by');
 
 boot(app, {
@@ -37,15 +26,32 @@ boot(app, {
   dev: process.env.NODE_ENV
 });
 
-console.log('> Seteando passoport');
-// setupPassport(app);
-console.log('> Passport OK');
+pasaporte(app);
+
+const { db } = app.datasources;
+db.on('connected', _.once(() => logger.msj('> BASE DE DATOS Conectada')));
 
 app.start = _.once(function() {
-  app.listen(app.get('port'), function() {
+  const server = app.listen(app.get('port'), function() {
     app.emit('started');
     var baseUrl = app.get('url').replace(/\/$/, '');
     logger.appStarted(app.get('port'), baseUrl, isBeta);
+  });
+
+  process.on('SIGINT', () => {
+    logger.msj('Apagando el servidor');
+    server.close(() => {
+      logger.msj('El servidor ah sido cerrado');
+    });
+    logger.msj('Cerrando la conexión con la Base de Datos');
+    db.disconnect()
+      .then(() => {
+        logger.msj('La conexión con la BDD ah sido cerrada');
+        // exit process
+        // this may close kept alive sockets
+        // eslint-disable-next-line no-process-exit
+        process.exit(0);
+      });
   });
 });
 

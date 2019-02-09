@@ -1,5 +1,7 @@
 module.exports = function enableAuthentication(app) {
   // enable authentication
-  console.log('> enableAuthentication');
   app.enableAuth();
 };
+console.log('====================================');
+console.log('> BOOT: Habilitar Autentificación [✓]');
+console.log('====================================');

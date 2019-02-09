@@ -4,7 +4,8 @@
       "loopback/common/models",
       "loopback/server/models",
       "../common/models",
-      "./models"
+      "./models",
+      "../node_modules/loopback-component-passport/lib/models"
     ],
     "mixins": [
       "loopback/common/mixins",
@@ -37,5 +38,20 @@
   },
   "Note": {
     "dataSource": "API-SEVER-SINTRIGA"
+  },
+  "Visitante": {
+    "dataSource": "API-SEVER-SINTRIGA"
+  },
+  "ApplicationCredential": {
+    "dataSource": "API-SEVER-SINTRIGA",
+    "public": true
+  },
+  "UserCredential": {
+    "dataSource": "API-SEVER-SINTRIGA",
+    "public": true
+  },
+  "UserIdentity": {
+    "dataSource": "API-SEVER-SINTRIGA",
+    "public": true
   }
 }
