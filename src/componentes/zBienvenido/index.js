@@ -1,27 +1,18 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { _cmdsatisfactoriaAlerta, _cmderrorAlerta, _cmdadvertenciaAlerta, _cmdinfoAlerta, _cmdlimpioAlerta } from '../../base/acciones/alerta.Acciones';
 import { _cmdgetEstado } from '../../base/acciones/estado.Acciones';
-import inicioMain from './inicioMain';
-import { push } from 'connected-react-router';
+import bienvenidoMain from './bienvenidoMain';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = state => ({
   tipo: state.alerta.tipo,
-  mensaje: state.alerta.mensaje,
-  estaCargando: state.estado.estaCargando
+  mensaje: state.alerta.mensaje
 });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      _cmdgetEstado,
-      _cmdsatisfactoriaAlerta,
-      _cmderrorAlerta,
-      _cmdadvertenciaAlerta,
-      _cmdinfoAlerta,
-      _cmdlimpioAlerta,
-      changePage: () => push('/series')
+      _cmdgetEstado
     },
     dispatch
   );
@@ -29,4 +20,4 @@ const mapDispatchToProps = dispatch =>
 export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(inicioMain));
+)(bienvenidoMain));

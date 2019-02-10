@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // NOTA: Incluir el logo posteriormente
 import Escribiendo from '../typing';
 import Alerta from '../alerta';
-import './inicioMain.css';
+import './bienvenidoMain.css';
 import Fondo from '../fondo';
 import lander1 from '../../recursos/lander1.png';
 import lander2 from '../../recursos/lander2.png';
@@ -16,12 +16,11 @@ const mensajes = [
   'Únete a nuestro grupo de WhatsApp.'
 ];
 
-class inicioMain extends Component {
+class bienvenidoMain extends Component {
   constructor(props) {
     super(props);
   }
 
-  componentWillMount() {}
   componentDidMount() {
     this.props._cmdgetEstado();
   }
@@ -93,13 +92,10 @@ class inicioMain extends Component {
   }
 }
 
-inicioMain.propTypes = {
+bienvenidoMain.propTypes = {
   _cmdgetEstado: PropTypes.func.isRequired,
-  estaCargando: PropTypes.bool,
-  _cmdinfoAlerta: PropTypes.func.isRequired,
-  _cmdlimpioAlerta: PropTypes.func.isRequired,
-  tipo: PropTypes.string,
-  mensaje: PropTypes.string
+  tipo: PropTypes.string.isRequired,
+  mensaje: PropTypes.string.isRequired
 };
 
-export default inicioMain;
+export default bienvenidoMain;
