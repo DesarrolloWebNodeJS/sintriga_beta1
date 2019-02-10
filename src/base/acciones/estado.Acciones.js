@@ -10,6 +10,9 @@ export const _cmdgetEstado = () => {
     apiSeries
       .get('/es')
       .then(response => {
+        console.log('===============++++=====================');
+        console.log(response.data);
+        console.log('====================================');
         dispatch({
           type: ESTADO_RECIBE,
           payload: response.data

@@ -1,5 +1,6 @@
 import React from 'react';
 import Superior from '../../componentes/zSuperior';
+import Estado from '../../componentes/zEstado';
 import Inferior from '../../componentes/inferior';
 
 const EstadoPagina = () => {
@@ -9,10 +10,7 @@ const EstadoPagina = () => {
         propEstilo={{ background: 'rgba(0, 0, 0, 0.63)' }}
         propTitulo='Estado'
       />
-      <h1>
-        TODO: Conectar a redux el componente. y hacer peticiones GET sobre info del
-        servidor.
-      </h1>
+      <Estado/>
       <Inferior />
     </div>
   );
