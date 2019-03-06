@@ -10,9 +10,6 @@ export const _cmdgetEstado = () => {
     apiSeries
       .get('/es')
       .then(response => {
-        console.log('===============++++=====================');
-        console.log(response.data);
-        console.log('====================================');
         dispatch({
           type: ESTADO_RECIBE,
           payload: response.data
@@ -21,8 +18,8 @@ export const _cmdgetEstado = () => {
           type: ALERTA_INFO, mensaje: response.data.appVersion
         });
       })
-      .catch(error => {
-        dispatch({ type: ALERTA_ERROR, mensaje: error.message });
+      .catch(() => {
+        dispatch({ type: ALERTA_ERROR});
       });
       dispatch({
         type: ALERTA_LIMPIAR

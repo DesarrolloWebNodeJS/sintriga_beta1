@@ -21,11 +21,11 @@ export const _cmdgetSeries = () => {
           payload: response.data
         });
         dispatch({
-          type: ALERTA_SATISFACTORIA, mensaje: response.statusText
+          type: ALERTA_SATISFACTORIA, mensaje: 'Series cargadas correctamente.'
         });
       })
-      .catch(error => {
-        dispatch({ type: ALERTA_ERROR, mensaje: error.message });
+      .catch(() => {
+        dispatch({ type: ALERTA_ERROR});
         dispatch({ type: CAT_SERIES_ERROR });
       });
       dispatch({
@@ -43,20 +43,19 @@ export const _cmdmostrarNuevo = () => {
 
 export const _cmdpostSeries = item => {
   return (dispatch, getState, api) => {
-    // console.log('current state:', getState());
     api
-      .post('/notes', item)
-      .then(response => {
+      .post('/api/notes', item)
+      .then(() => {
         dispatch({
           type: CAT_SERIES_AGREGA,
           payload: item
         });
         dispatch({
-          type: ALERTA_SATISFACTORIA, mensaje: response.statusText
+          type: ALERTA_SATISFACTORIA, mensaje: 'Serie agregada correctamente.'
         });
       })
-      .catch(error => {
-        dispatch({ type: ALERTA_ERROR, mensaje: error.message });
+      .catch(() => {
+        dispatch({ type: ALERTA_ERROR});
         dispatch({ type: CAT_SERIES_ERROR });
       });
       dispatch({

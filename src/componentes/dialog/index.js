@@ -57,7 +57,7 @@ class dialogForm extends Component {
             <TextField
               fullWidth
               id='title'
-              label='Titulo'
+              label='Título'
               margin='dense'
               name='title'
               onChange={e => this.handleChange(e)}
@@ -74,7 +74,7 @@ class dialogForm extends Component {
             />
           </DialogContent>
           <DialogActions>
-            <Button color='primary' onClick={cmdmostrarNuevo}>
+            <Button color='secondary' onClick={cmdmostrarNuevo}>
               Cancelar
             </Button>
             <Button color='primary' onClick={this.cmdAceptar}>
