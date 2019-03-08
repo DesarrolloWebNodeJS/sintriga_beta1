@@ -15,7 +15,7 @@ export const _cmdgetEstado = () => {
           payload: response.data
         });
         dispatch({
-          type: ALERTA_INFO, mensaje: response.data.appVersion
+          type: ALERTA_INFO, mensaje: 'Versión ' + response.data.appVersion
         });
       })
       .catch(() => {
