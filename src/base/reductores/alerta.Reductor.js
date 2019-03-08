@@ -35,7 +35,8 @@ export default (state = initialState, action) => {
       };
     case ALERTA_LIMPIAR:
       return {
-        ...state
+        tipo: 'success',
+        mensaje: ''
       };
     default:
       return state;
