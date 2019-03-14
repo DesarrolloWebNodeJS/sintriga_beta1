@@ -32,8 +32,6 @@ const publicUrl = publicPath.slice(0, -1);
 const env = getClientEnvironment(publicUrl);
 const version = env.stringified['process.env'].VERSION;
 
-console.log('V. ' + version);
-
 // Assert this just to be safe.
 // Development builds of React are slow and not intended for production.
 if (env.stringified['process.env'].NODE_ENV !== '"production"') {
@@ -205,8 +203,7 @@ module.exports = {
       open: false
     }),
     new webpack.BannerPlugin({
-      banner: '\n* Desarrollo por:\n' +
-      '* Desarrollo Web NodeJS • Quito Ecuador Copyright (c) 2019 \n' +
+      banner: '\n' + '* Desarrollo Web NodeJS • Quito Ecuador Copyright (c) 2019 \n' +
       '* Contacto / Soporte: https://www.facebook.com/desarrollowebnodejs/ \n' +
       '* Versión: ' + version + '\n' +
       '* Fecha de compilación: ' + now + '\n\n'

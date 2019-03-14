@@ -3,6 +3,7 @@
 const fs = require("fs");
 const path = require("path");
 const paths = require("./paths");
+const pkg = require("../package.json")
 
 // Make sure that including paths.js after env.js will read .env variables.
 delete require.cache[require.resolve("./paths")];
@@ -61,8 +62,7 @@ process.env.NODE_PATH = (process.env.NODE_PATH || "")
 const REACT_APP = /^REACT_APP_/i;
 
 function getClientEnvironment(publicUrl) {
-  // TODO: Extraer la version desde el json, fecha de ultima compilación.
-  const myVersion = paths.appPackageJson;
+  const version = pkg.version;
   const raw = Object.keys(process.env)
     .filter(key => REACT_APP.test(key))
     .reduce(
@@ -73,7 +73,7 @@ function getClientEnvironment(publicUrl) {
       {
         // Useful for determining whether we’re running in production mode.
         // Most importantly, it switches React into the correct mode.
-        VERSION: "hola",
+        VERSION: version,
         NODE_ENV: process.env.NODE_ENV || "development",
         // Useful for resolving the correct path to static assets in `public`.
         // For example, <img src={process.env.PUBLIC_URL + '/img/logo.png'} />.
