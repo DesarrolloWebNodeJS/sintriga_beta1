@@ -12,10 +12,6 @@ class seriesMain extends Component {
     super(props);
   }
 
-  componentWillMount() {
-    this.props._cmdlimpioAlerta();
-  }
-
   componentDidMount() {
     this.props._cmdgetSeries();
   }
@@ -34,11 +30,6 @@ class seriesMain extends Component {
 }
 
 seriesMain.propTypes = {
-  _cmdsatisfactoriaAlerta: PropTypes.func.isRequired,
-  _cmderrorAlerta: PropTypes.func.isRequired,
-  _cmdadvertenciaAlerta: PropTypes.func.isRequired,
-  _cmdinfoAlerta: PropTypes.func.isRequired,
-  _cmdlimpioAlerta: PropTypes.func.isRequired,
   _cmdgetSeries: PropTypes.func.isRequired,
   _cmdmostrarNuevo: PropTypes.func,
   _cmdpostSeries: PropTypes.func,

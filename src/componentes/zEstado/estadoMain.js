@@ -5,7 +5,7 @@ class estadoMain extends Component {
   componentWillMount() {
   }
   componentDidMount() {
-    this.props._cmdgetEstado();
+    this.props._cmdgetEstado(40);
 
   }
 
