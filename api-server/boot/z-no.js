@@ -9,7 +9,7 @@ export default function fourOhFour(app) {
 
     if (type === 'html') {
       // req.flash('danger', `We couldn't find path ${ path }`);
-      return res.render('');
+      return res.status('404').json({ error: 'path not found' });
     }
 
     if (type === 'json') {
