@@ -12,3 +12,7 @@ export const CAT_SERIES_ERROR = 'series/CAT_SERIES_ERROR';
 export const CAT_SERIES_NUEVO = 'series/CAT_SERIES_NUEVO';
 // Estado
 export const ESTADO_RECIBE = 'estado/ESTADO_RECIBE';
+// Opciones
+export const MOSTRAR_DRAWER = 'opciones/MOSTRAR_DRAWER';
+export const RESET_DRAWER = 'opciones/RESET_DRAWER';
+export const MOSTRAR_NUEVO = 'opciones/MOSTRAR_NUEVO';

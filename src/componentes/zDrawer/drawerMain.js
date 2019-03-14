@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
@@ -80,36 +80,18 @@ const styles = theme => ({
   }
 });
 
-class Dashboard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      open: false
-    };
-    this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
-    this.handleDrawerClose = this.handleDrawerClose.bind(this);
-  }
-
-  handleDrawerOpen() {
-    this.setState({ open: true });
-  }
-
-  handleDrawerClose() {
-    this.setState({ open: false });
-  }
-
+class drawerMain extends Component {
   render() {
-    const { classes } = this.props;
-
+    const { classes, abiertoDrawer, _cmdmostrarDrawer } = this.props;
     return (
       <React.Fragment>
         <div className={classes.root}>
           <Superior
-            abierto={this.state.open}
             propEstilo={{
               background: 'rgba(0, 0, 0, 0.63)',
               borderBottom: '0.5px solid #ffc107'
             }}
+            propmostrarDrawer={true}
             propPosicion='fixed'
             propTitulo='Catálogo de Series'
           />
@@ -117,19 +99,19 @@ class Dashboard extends React.Component {
             classes={{
               paper: classNames(
                 classes.drawerPaper,
-                !this.state.open && classes.drawerPaperClose,
+                !abiertoDrawer && classes.drawerPaperClose,
                 classes.fondoDrawer
               ),
               paperAnchorDockedLeft: classes.bordeDerecho
             }}
-            open={this.state.open}
+            open={abiertoDrawer}
             variant='permanent'
             >
             <div className={classes.toolbarIcon}>
               <IconButton
                 className={classes.colorDrawer}
-                disabled={!this.state.open}
-                onClick={this.handleDrawerClose}
+                disabled={!abiertoDrawer}
+                onClick={_cmdmostrarDrawer}
                 >
                 <ChevronLeftIcon />
               </IconButton>
@@ -238,8 +220,10 @@ class Dashboard extends React.Component {
   }
 }
 
-Dashboard.propTypes = {
-  classes: PropTypes.object.isRequired
+drawerMain.propTypes = {
+  classes: PropTypes.object.isRequired,
+  abiertoDrawer: PropTypes.bool,
+  _cmdmostrarDrawer: PropTypes.func
 };
 
-export default withStyles(styles)(Dashboard);
+export default withStyles(styles)(drawerMain);

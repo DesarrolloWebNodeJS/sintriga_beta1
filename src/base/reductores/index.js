@@ -5,9 +5,11 @@ import { combineReducers } from 'redux';
 import alertaReductor from './alerta.Reductor';
 import estadoReductor from './estado.Reductor';
 import seriesReductor from './series.Reductor';
+import opcionesReductor from './opciones.Reductor';
 
 export default combineReducers({
   alerta: alertaReductor,
   estado: estadoReductor,
-  series: seriesReductor
+  series: seriesReductor,
+  opciones: opcionesReductor
 });

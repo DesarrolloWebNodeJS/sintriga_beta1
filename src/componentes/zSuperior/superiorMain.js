@@ -86,6 +86,10 @@ class superiorMain extends Component {
     this.setState({ anchorEl: null });
   }
 
+  componentWillUnmount() {
+    this.props._cmdresetDrawer();
+  }
+
   render() {
     const {
       propColor,
@@ -95,7 +99,9 @@ class superiorMain extends Component {
       _cmdmostrarNuevo,
       propBuscador,
       classes,
-      abierto
+      abiertoDrawer,
+      _cmdmostrarDrawer,
+      propmostrarDrawer
     } = this.props;
 
     const { auth, anchorEl } = this.state;
@@ -103,29 +109,44 @@ class superiorMain extends Component {
     return (
       <div>
         <AppBar
-          className={classNames(classes.appBar, abierto && classes.appBarShift)}
+          className={classNames(
+            classes.appBar,
+            abiertoDrawer && classes.appBarShift
+          )}
           color={propColor}
           position={propPosicion}
           style={propEstilo}
           >
           <Toolbar
             className={classes.superiorMain}
-            disableGutters={!this.state.open}
+            disableGutters={!abiertoDrawer}
             variant='dense'
             >
-            <div className={classes.superiorColor}>
-              <IconButton
-                aria-label='Abrir panel'
-                className={classNames(
-                  classes.menuButton,
-                  abierto && classes.menuButtonHidden
-                )}
-                color='inherit'
-                onClick={this.handleDrawerOpen}
-                >
-                <MenuIcon />
-              </IconButton>
-            </div>
+            {propmostrarDrawer ? (
+              <div className={classes.superiorColor}>
+                <IconButton
+                  aria-label='Abrir panel'
+                  className={classNames(
+                    classes.menuButton,
+                    abiertoDrawer && classes.menuButtonHidden
+                  )}
+                  color='inherit'
+                  onClick={_cmdmostrarDrawer}
+                  >
+                  <MenuIcon />
+                </IconButton>
+                <Button color='inherit' component={Link} to='./'>
+                  {propTitulo}
+                </Button>
+              </div>
+            ) : (
+              <div className={classes.superiorColor}>
+                <Button color='inherit' component={Link} to='./'>
+                  {propTitulo}
+                </Button>
+              </div>
+            )}
+
             {propBuscador ? (
               <div className={classes.superiorColor}>Soy el buscador..</div>
             ) : (
@@ -210,8 +231,9 @@ superiorMain.defaultProps = {
   propTitulo: 'bienvenidos',
   propColor: 'inherit',
   propPosicion: 'fixed',
-  propBuscador: false,
-  abierto: false
+  propBuscador: true,
+  abiertoDrawer: false,
+  propmostrarDrawer: false
 };
 
 superiorMain.propTypes = {
@@ -222,7 +244,10 @@ superiorMain.propTypes = {
   _cmdmostrarNuevo: PropTypes.func,
   propBuscador: PropTypes.bool,
   classes: PropTypes.object.isRequired,
-  abierto: PropTypes.bool.isRequired
+  abiertoDrawer: PropTypes.bool.isRequired,
+  propmostrarDrawer: PropTypes.bool.isRequired,
+  _cmdmostrarDrawer: PropTypes.func.isRequired,
+  _cmdresetDrawer: PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(superiorMain);
