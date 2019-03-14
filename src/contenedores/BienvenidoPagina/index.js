@@ -8,7 +8,7 @@ import Inferior from '../../componentes/inferior';
 const BienvenidoPagina = () => {
   return (
     <div>
-      <Superior propEstilo={{ background: 'rgba(0, 0, 0, 0.63)' }} propTitulo='Series de Intriga'/>
+      <Superior propEstilo={{ background: 'rgba(0, 0, 0, 0.63)', borderBottom: '0.5px solid #ffc107' }} propPosicion='static' propTitulo='Series de Intriga'/>
       <Bienvenido />
       <Inferior />
     </div>
