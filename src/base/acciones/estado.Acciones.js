@@ -5,7 +5,7 @@ import {
   ESTADO_RECIBE
 } from './constantes';
 
-export const _cmdgetEstado = () => {
+export const _cmdgetEstado = idComponente => {
   return (dispatch, getState, apiSeries) => {
     apiSeries
       .get('/es')
@@ -19,7 +19,7 @@ export const _cmdgetEstado = () => {
         });
       })
       .catch(() => {
-        dispatch({ type: ALERTA_ERROR});
+        dispatch({ type: ALERTA_ERROR, codigo: '45' + idComponente});
       });
       dispatch({
         type: ALERTA_LIMPIAR

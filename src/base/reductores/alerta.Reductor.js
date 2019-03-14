@@ -21,7 +21,7 @@ export default (state = initialState, action) => {
     case ALERTA_ERROR:
       return {
         tipo: 'error',
-        mensaje: 'Error al comunicarse con el Servidor.'
+        mensaje: 'Falla en la comunicación. Cód. ' + action.codigo
       };
     case ALERTA_ADVERTENCIA:
       return {

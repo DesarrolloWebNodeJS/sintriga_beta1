@@ -25,7 +25,7 @@ export const _cmdgetSeries = () => {
         });
       })
       .catch(() => {
-        dispatch({ type: ALERTA_ERROR});
+        dispatch({ type: ALERTA_ERROR, codigo: 4520});
         dispatch({ type: CAT_SERIES_ERROR });
       });
       dispatch({
@@ -55,7 +55,7 @@ export const _cmdpostSeries = item => {
         });
       })
       .catch(() => {
-        dispatch({ type: ALERTA_ERROR});
+        dispatch({ type: ALERTA_ERROR, codigo: 4520});
         dispatch({ type: CAT_SERIES_ERROR });
       });
       dispatch({
