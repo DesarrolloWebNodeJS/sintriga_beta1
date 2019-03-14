@@ -9,7 +9,7 @@ import rootReducer from './reductores';
 
 // NOTA: Apunta a la IP real del servidor donde se aloja express.
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:5000'
+  baseURL: 'http://192.168.100.95:5000'
 });
 
 const middleware = [
