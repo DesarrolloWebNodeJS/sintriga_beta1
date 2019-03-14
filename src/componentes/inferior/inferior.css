@@ -5,6 +5,8 @@
   display: flex;
   width: 100%;
   justify-content: flex-end;
+  z-index: 1200;
+  border-top: 0.5px solid #ffc107;
 }
 
 .aire {
@@ -13,7 +15,7 @@
 
 .link {
   text-decoration: none;
-  color: #f8f8f8;
+  color: #ffc107;
   font-family: 'consolas';
   letter-spacing: 0.5px;
   font-size: 0.75rem;
