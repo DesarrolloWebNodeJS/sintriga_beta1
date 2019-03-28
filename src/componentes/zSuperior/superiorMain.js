@@ -147,15 +147,9 @@ class superiorMain extends Component {
               </div>
             )}
 
-            {propBuscador ? (
+            {propBuscador && auth &&
               <div className={classes.superiorColor}>Soy el buscador..</div>
-            ) : (
-              <div className={classes.superiorColor}>
-                <Button color='inherit' component={Link} to='./'>
-                  {propTitulo}
-                </Button>
-              </div>
-            )}
+            }
             <div className={classes.superiorColor}>
               {auth ? (
                 <span>
@@ -231,7 +225,7 @@ superiorMain.defaultProps = {
   propTitulo: 'bienvenidos',
   propColor: 'inherit',
   propPosicion: 'fixed',
-  propBuscador: true,
+  propBuscador: false,
   abiertoDrawer: false,
   propmostrarDrawer: false
 };
