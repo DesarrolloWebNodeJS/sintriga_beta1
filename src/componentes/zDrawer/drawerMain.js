@@ -87,13 +87,14 @@ class drawerMain extends Component {
       <React.Fragment>
         <div className={classes.root}>
           <Superior
+            propBuscador={true}
             propEstilo={{
               background: 'rgba(0, 0, 0, 0.63)',
               borderBottom: '0.5px solid #ffc107'
             }}
             propmostrarDrawer={true}
             propPosicion='fixed'
-            propTitulo='Catálogo de Series'
+            propTitulo='Series'
           />
           <Drawer
             classes={{
@@ -116,7 +117,6 @@ class drawerMain extends Component {
                 <ChevronLeftIcon />
               </IconButton>
             </div>
-            <Divider className={classes.divider} />
             <List>
               <div>
                 <ListItem button>
@@ -127,7 +127,7 @@ class drawerMain extends Component {
                     classes={{
                       primary: classes.colorDrawer
                     }}
-                    primary='Panel de Control'
+                    primary='Favoritos'
                   />
                 </ListItem>
                 <ListItem button>
@@ -138,7 +138,29 @@ class drawerMain extends Component {
                     classes={{
                       primary: classes.colorDrawer
                     }}
-                    primary='Favoritos'
+                    primary='Recientes'
+                  />
+                </ListItem>
+                <ListItem button>
+                  <ListItemIcon className={classes.colorDrawer}>
+                    <ShoppingCartIcon />
+                  </ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      primary: classes.colorDrawer
+                    }}
+                    primary='Investigaciones'
+                  />
+                </ListItem>
+                <ListItem button>
+                  <ListItemIcon className={classes.colorDrawer}>
+                    <ShoppingCartIcon />
+                  </ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      primary: classes.colorDrawer
+                    }}
+                    primary='Estadistica'
                   />
                 </ListItem>
                 <ListItem button>
@@ -149,7 +171,7 @@ class drawerMain extends Component {
                     classes={{
                       primary: classes.colorDrawer
                     }}
-                    primary='Lista series'
+                    primary='Chat'
                   />
                 </ListItem>
                 <ListItem button>
@@ -165,7 +187,7 @@ class drawerMain extends Component {
                 </ListItem>
               </div>
             </List>
-            <Divider className={classes.divider} />
+            <Divider className={classes.colorDivider} />
             <List>
               <div>
                 <ListSubheader className={classes.colorDrawer} inset>
