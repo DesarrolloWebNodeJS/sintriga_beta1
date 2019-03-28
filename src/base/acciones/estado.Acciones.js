@@ -18,8 +18,8 @@ export const _cmdgetEstado = idComponente => {
           type: ALERTA_INFO, mensaje: 'Versión ' + response.data.appVersion
         });
       })
-      .catch(() => {
-        dispatch({ type: ALERTA_ERROR, codigo: '45' + idComponente});
+      .catch((error) => {
+        dispatch({ type: ALERTA_ERROR, codigo: error.message + ' 45' + idComponente});
       });
       dispatch({
         type: ALERTA_LIMPIAR
