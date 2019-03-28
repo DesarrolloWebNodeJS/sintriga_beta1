@@ -14,6 +14,13 @@
   },
   "initial": {
     "compression": {},
+    "cors": {
+      "params": {
+        "origin": "http://192.168.100.95:4000",
+        "credentials": true,
+        "maxAge": 86400
+      }
+    },
     "morgan": {
       "params": ":status :method :response-time ms - :url"
     }
