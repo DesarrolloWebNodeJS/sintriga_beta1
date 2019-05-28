@@ -16,7 +16,7 @@
     "compression": {},
     "cors": {
       "params": {
-        "origin": "http://192.168.100.95:4000",
+        "origin": true,
         "credentials": true,
         "maxAge": 86400
       }
@@ -26,7 +26,7 @@
     }
   },
   "session": {
-    "./middlewares/sessions.js": {}
+    "./middlewares/sessions": {}
   },
   "auth": {
     "loopback#token": {}

@@ -3,19 +3,19 @@ require('dotenv').load();
 const _ = require('lodash');
 const loopback = require('loopback');
 const boot = require('loopback-boot');
-const logger = require('./logger');
 const expressState = require('express-state');
-// const setupPassport = require('./component-passport');
-const pasaporte = require('./componentes-vr');
+// const pasaporte = require('./componentes-vr');
+const createDebugger = require('debug');
+
+const log = createDebugger('sintriga:server');
+log.enabled = true;
 
 const app = loopback();
 const isBeta = !!process.env.BETA;
 
-process.env.PORT = 5000;
-
 expressState.extend(app);
 app.set('state namespace', '__sintriga__');
-app.set('port', process.env.PORT);
+app.set('port', process.env.PORT || 3000);
 app.use(loopback.token({
   model: app.models.accessToken
 }));
@@ -26,27 +26,33 @@ boot(app, {
   dev: process.env.NODE_ENV
 });
 
-pasaporte(app);
+// pasaporte(app);
 
-const { db } = app.datasources;
-db.on('connected', _.once(() => logger.msj('> BASE DE DATOS Conectada')));
-
+const { mongods } = app.datasources;
+mongods.on('connected', _.once(() => log('> BASE DE DATOS Conectada')));
 app.start = _.once(function() {
   const server = app.listen(app.get('port'), function() {
     app.emit('started');
-    var baseUrl = app.get('url').replace(/\/$/, '');
-    logger.appStarted(app.get('port'), baseUrl, isBeta);
+    log(
+      '> El servidor de SINTRIGA está escuchando en el puerto %d modo %s',
+      app.get('port'),
+      app.get('env')
+    );
+    if (isBeta) {
+      log('> SINTRIGA esta en modo BETA');
+    }
+    log(`> Conectando con la BDD ${mongods.settings.url}`);
   });
 
   process.on('SIGINT', () => {
-    logger.msj('Apagando el servidor');
+    log('> Apagando el servidor');
     server.close(() => {
-      logger.msj('El servidor ah sido cerrado');
+      log('> El servidor ah sido cerrado');
     });
-    logger.msj('Cerrando la conexión con la Base de Datos');
-    db.disconnect()
+    log('> Cerrando la conexión con la Base de Datos');
+    mongods.disconnect()
       .then(() => {
-        logger.msj('La conexión con la BDD ah sido cerrada');
+        log('> La conexión con la BDD ah sido cerrada');
         // exit process
         // this may close kept alive sockets
         // eslint-disable-next-line no-process-exit

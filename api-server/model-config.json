@@ -15,43 +15,43 @@
     ]
   },
   "User": {
-    "dataSource": "API-SEVER-SINTRIGA"
+    "dataSource": "mongods"
   },
   "AccessToken": {
-    "dataSource": "API-SEVER-SINTRIGA",
+    "dataSource": "mongods",
     "public": false
   },
   "ACL": {
-    "dataSource": "API-SEVER-SINTRIGA",
+    "dataSource": "mongods",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "API-SEVER-SINTRIGA",
+    "dataSource": "mongods",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "API-SEVER-SINTRIGA",
+    "dataSource": "mongods",
     "public": false
   },
   "Note": {
-    "dataSource": "API-SEVER-SINTRIGA"
+    "dataSource": "mongods"
   },
   "Visitante": {
-    "dataSource": "API-SEVER-SINTRIGA"
+    "dataSource": "mongods"
   },
   "ApplicationCredential": {
-    "dataSource": "API-SEVER-SINTRIGA",
+    "dataSource": "mongods",
     "public": true
   },
   "UserCredential": {
-    "dataSource": "API-SEVER-SINTRIGA",
+    "dataSource": "mongods",
     "public": true
   },
   "UserIdentity": {
-    "dataSource": "API-SEVER-SINTRIGA",
+    "dataSource": "mongods",
     "public": true
   }
 }
