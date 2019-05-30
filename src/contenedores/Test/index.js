@@ -57,22 +57,19 @@ class PruebaPagina extends Component {
                 >
                 Test Pagina
               </Typography>
-              <Button color='secondary'>Login</Button>
+              <Button color='secondary'>Ingreso</Button>
             </Toolbar>
           </AppBar>
         </div>
-        <Typography
-                className={classes.flex}
-                variant='title'
-                >
-                Test Pagina
-              </Typography>
+        <Typography className={classes.flex} variant='title'>
+          Test Pagina
+        </Typography>
         <Alerta mensaje={!mensaje ? 'Test Pagina' : ''} tipo={tipo} />
         <Button color='primary' variant='contained'>
-          Primary
+          Primario
         </Button>
         <Button color='secondary' variant='contained'>
-          Secondary
+          Secundario
         </Button>
       </div>
     );
