@@ -60,7 +60,7 @@ const styles = theme => ({
     overflow: 'auto'
   },
   fondoDrawer: {
-    backgroundColor: 'rgba(0, 0, 0, 0.63)'
+    backgroundColor: 'rgba(0, 0, 0, 0.80)'
   },
   bordeDerecho: {
     borderRight: '0.5px solid #ffc107'
