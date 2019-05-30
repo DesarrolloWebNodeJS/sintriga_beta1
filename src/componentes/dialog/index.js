@@ -74,11 +74,11 @@ class dialogForm extends Component {
             />
           </DialogContent>
           <DialogActions>
-            <Button color='secondary' onClick={cmdmostrarNuevo}>
-              Cancelar
-            </Button>
             <Button color='primary' onClick={this.cmdAceptar}>
               Aceptar
+            </Button>
+            <Button color='secondary' onClick={cmdmostrarNuevo}>
+              Cancelar
             </Button>
           </DialogActions>
         </Dialog>
