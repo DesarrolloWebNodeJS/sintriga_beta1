@@ -135,13 +135,13 @@ class superiorMain extends Component {
                   >
                   <MenuIcon />
                 </IconButton>
-                <Button color='inherit' component={Link} to='./'>
+                <Button color='secondary' component={Link} to='./'>
                   {propTitulo}
                 </Button>
               </div>
             ) : (
               <div className={classes.superiorColor}>
-                <Button color='inherit' component={Link} to='./'>
+                <Button color='secondary' component={Link} to='./'>
                   {propTitulo}
                 </Button>
               </div>
@@ -223,7 +223,7 @@ class superiorMain extends Component {
 
 superiorMain.defaultProps = {
   propTitulo: 'bienvenidos',
-  propColor: 'inherit',
+  propColor: 'primary',
   propPosicion: 'fixed',
   propBuscador: false,
   abiertoDrawer: false,
