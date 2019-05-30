@@ -4,7 +4,7 @@ import Typist from 'react-typist';
 
 const Escribiendo = ({ mensajes }) => {
   return (
-    <div style={{ color: '#FFC107'}}>
+    <div style={{ color: '#FFC107', fontFamily: 'Gabriola'}}>
       <Typist cursor={{ show: false }}>
         <span>Apasionados por la intriga,</span>
         <Typist.Backspace count={11} delay={2000} />
