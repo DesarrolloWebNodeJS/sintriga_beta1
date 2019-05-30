@@ -1,4 +1,7 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
+import tema from '../../tema';
+
 import Superior from '../../componentes/zSuperior';
 import Noencontrado from '../../componentes/404';
 import Inferior from '../../componentes/inferior';
@@ -6,14 +9,16 @@ import Inferior from '../../componentes/inferior';
 const NoencontradoPagina = () => {
   return (
     <div>
+      <Helmet>
+        <title>404 | SINTRIGA</title>
+      </Helmet>
       <Superior
-        propEstilo={{ background: 'rgba(0, 0, 0, 0.63)' }}
-        propTitulo='Error'
+        propTitulo='No existe'
       />
-      <Noencontrado/>
+      <Noencontrado />
       <Inferior />
     </div>
   );
 };
 
-export default NoencontradoPagina;
+export default tema(NoencontradoPagina);
