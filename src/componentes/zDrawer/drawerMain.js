@@ -89,11 +89,9 @@ class drawerMain extends Component {
           <Superior
             propBuscador={true}
             propEstilo={{
-              background: 'rgba(0, 0, 0, 0.63)',
               borderBottom: '0.5px solid #ffc107'
             }}
             propmostrarDrawer={true}
-            propPosicion='fixed'
             propTitulo='Series'
           />
           <Drawer
