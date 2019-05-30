@@ -12,7 +12,7 @@ const ProgramaPagina = () => {
   return (
     <div>
       <Helmet>
-        <title>Bienvenido | SINTRIGA</title>
+        <title>Series de Intriga | SINTRIGA</title>
       </Helmet>
       <Drawer />
       <Inferior />
