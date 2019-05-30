@@ -4,8 +4,7 @@
       "loopback/common/models",
       "loopback/server/models",
       "../common/models",
-      "./models",
-      "../node_modules/loopback-component-passport/lib/models"
+      "./models"
     ],
     "mixins": [
       "loopback/common/mixins",
@@ -15,7 +14,8 @@
     ]
   },
   "User": {
-    "dataSource": "mongods"
+    "dataSource": "mongods",
+    "public": false
   },
   "AccessToken": {
     "dataSource": "mongods",
@@ -36,21 +36,11 @@
     "dataSource": "mongods",
     "public": false
   },
-  "Note": {
-    "dataSource": "mongods"
-  },
-  "Visitante": {
-    "dataSource": "mongods"
-  },
-  "ApplicationCredential": {
+  "cat_contacto": {
     "dataSource": "mongods",
     "public": true
   },
-  "UserCredential": {
-    "dataSource": "mongods",
-    "public": true
-  },
-  "UserIdentity": {
+  "cat_usuarios": {
     "dataSource": "mongods",
     "public": true
   }
