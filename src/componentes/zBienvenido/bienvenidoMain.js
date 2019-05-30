@@ -35,10 +35,9 @@ class bienvenidoMain extends Component {
           <header className='bienvenidoHeader'>
             <Escribiendo mensajes={mensajes} />
             <Button
+            color='secondary'
               component={Link}
               style={{
-                color: '#000',
-                backgroundColor: '#FFC107',
                 borderRadius: '20px',
                 fontWeight: '600'
               }}
@@ -50,30 +49,28 @@ class bienvenidoMain extends Component {
             <div style={{ display: 'flex' }}>
               <div style={{ marginRight: '0.5em' }}>
                 <Button
+                  color='secondary'
                   component={Link}
                   style={{
-                    color: '#000',
-                    backgroundColor: '#FFC107',
                     borderRadius: '20px',
                     fontWeight: '600'
                   }}
                   to='/ingreso'
-                  variant='outlined'
+                  variant='contained'
                   >
                   ¿ya tienes cuenta? ingresa
                 </Button>
               </div>
                 <Button
                   className='bienvenidoAire'
+                  color='primary'
                   component={Link}
                   style={{
-                    color: '#000',
-                    backgroundColor: '#FFC107',
                     borderRadius: '20px',
                     fontWeight: '600'
                   }}
                   to='/registro'
-                  variant='outlined'
+                  variant='contained'
                   >
                   ¿eres nuevo? registrate
                 </Button>
