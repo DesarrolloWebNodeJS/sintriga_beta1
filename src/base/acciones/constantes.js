@@ -1,3 +1,6 @@
+// Ingreso
+export const SISTEMA_INGRESAR = 'ingreso/SISTEMA_INGRESAR';
+export const SISTEMA_SALIR = 'ingreso/SISTEMA_SALIR';
 // Alertas
 export const ALERTA_SATISFACTORIA = 'alerta/ALERTA_SATISFACTORIA';
 export const ALERTA_ERROR = 'alerta/ALERTA_ERROR';
