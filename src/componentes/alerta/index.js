@@ -42,7 +42,8 @@ const styles1 = theme => ({
   },
   message: {
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+    textTransform: 'capitalize'
   }
 });
 
