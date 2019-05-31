@@ -9,7 +9,7 @@
     "rol": {
       "type": "string",
       "required": true,
-      "default": "doctor"
+      "default": "intrigado"
     },
     "alta": {
       "type": "date"
