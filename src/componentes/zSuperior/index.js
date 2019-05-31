@@ -11,7 +11,8 @@ const mapStateToProps = state => ({
   mostrarNuevo: state.series.mostrarNuevo,
   tipo: state.alerta.tipo,
   mensaje: state.alerta.mensaje,
-  abiertoDrawer: state.opciones.abiertoDrawer
+  abiertoDrawer: state.opciones.abiertoDrawer,
+  auth: state.ingreso.auth
 });
 
 const mapDispatchToProps = dispatch =>

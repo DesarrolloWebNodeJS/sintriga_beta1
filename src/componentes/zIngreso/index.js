@@ -1,22 +1,26 @@
-// import { bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { _cmdSistemaIngresar } from '../../base/acciones/ingreso.Acciones';
+import { _cmdlimpioAlerta } from '../../base/acciones/alerta.Acciones';
 
 import ingresoMain from './ingresoMain';
 
 const mapStateToProps = state => ({
   tipo: state.alerta.tipo,
-  mensaje: state.alerta.mensaje
+  mensaje: state.alerta.mensaje,
+  auth: state.ingreso.auth
 });
 
-/* const mapDispatchToProps = dispatch =>
+const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      _cmdgetEstado
+      _cmdSistemaIngresar,
+      _cmdlimpioAlerta
     },
     dispatch
-  ); */
+  );
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(ingresoMain);

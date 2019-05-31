@@ -25,9 +25,6 @@ const styles = theme => ({
     paddingRight: 24,
     justifyContent: 'space-between'
   },
-  superiorColor: {
-    color: '#ffc107'
-  },
   root: {
     flexGrow: 1
   },
@@ -65,8 +62,6 @@ class superiorMain extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // NOTA: autentificacion false por defecto
-      auth: true,
       anchorEl: null
     };
     this.handleMenu = this.handleMenu.bind(this);
@@ -101,10 +96,11 @@ class superiorMain extends Component {
       classes,
       abiertoDrawer,
       _cmdmostrarDrawer,
-      propmostrarDrawer
+      propmostrarDrawer,
+      auth
     } = this.props;
 
-    const { auth, anchorEl } = this.state;
+    const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
     return (
       <div>
@@ -123,14 +119,14 @@ class superiorMain extends Component {
             variant='dense'
             >
             {propmostrarDrawer ? (
-              <div className={classes.superiorColor}>
+              <div>
                 <IconButton
                   aria-label='Abrir panel'
                   className={classNames(
                     classes.menuButton,
                     abiertoDrawer && classes.menuButtonHidden
                   )}
-                  color='inherit'
+                  color='secondary'
                   onClick={_cmdmostrarDrawer}
                   >
                   <MenuIcon />
@@ -140,23 +136,21 @@ class superiorMain extends Component {
                 </Button>
               </div>
             ) : (
-              <div className={classes.superiorColor}>
+              <div>
                 <Button color='secondary' component={Link} to='./'>
                   {propTitulo}
                 </Button>
               </div>
             )}
 
-            {propBuscador && auth &&
-              <div className={classes.superiorColor}>Soy el buscador..</div>
-            }
-            <div className={classes.superiorColor}>
+            {propBuscador && auth && <div>Soy el buscador..</div>}
+            <div>
               {auth ? (
                 <span>
                   <IconButton
                     aria-haspopup='true'
                     aria-owns={open ? 'menu-appbar' : null}
-                    color='inherit'
+                    color='secondary'
                     onClick={this.handleMenu}
                     >
                     <AccountCircle />
@@ -175,41 +169,53 @@ class superiorMain extends Component {
                       horizontal: 'right'
                     }}
                     >
-                    <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={this.handleClose}>My account</MenuItem>
+                    <MenuItem onClick={this.handleClose}>Perfil</MenuItem>
+                    <MenuItem onClick={this.handleClose}>Mi Cuenta</MenuItem>
+                    <MenuItem onClick={this.handleChange}>Salir</MenuItem>
                   </Menu>
 
                   <Tooltip title='Nuevo'>
                     <IconButton
                       aria-label='Nuevo'
-                      color='inherit'
+                      color='secondary'
                       onClick={_cmdmostrarNuevo}
                       >
                       <NuevoIcono />
                     </IconButton>
                   </Tooltip>
                   <Tooltip title='Configuración'>
-                    <IconButton aria-label='Ingreso' color='inherit'>
+                    <IconButton aria-label='Ingreso' color='secondary'>
                       <MenuIcono />
                     </IconButton>
                   </Tooltip>
+                  <Button color='secondary' onClick={this.handleChange}>
+                    Salir
+                  </Button>
                 </span>
               ) : (
                 <span>
                   <Tooltip title='Facebook'>
-                    <IconButton aria-label='Facebook' color='inherit'>
+                    <IconButton aria-label='Facebook' color='secondary'>
                       <Apps />
                     </IconButton>
                   </Tooltip>
                   <Tooltip title='Whatsapp'>
-                    <IconButton aria-label='Whatsapp' color='inherit'>
+                    <IconButton aria-label='Whatsapp' color='secondary'>
                       <Apps />
                     </IconButton>
                   </Tooltip>
+                  <Button
+                    color='secondary'
+                    component={Link}
+                    onClick={this.handleChange}
+                    to='./ingreso'
+                    >
+                    Ingresar
+                  </Button>
                 </span>
               )}
               <Tooltip title='Ayuda'>
-                <IconButton aria-label='Ayuda' color='inherit'>
+                <IconButton aria-label='Ayuda' color='secondary'>
                   <AyudaIcono />
                 </IconButton>
               </Tooltip>
@@ -241,7 +247,8 @@ superiorMain.propTypes = {
   abiertoDrawer: PropTypes.bool.isRequired,
   propmostrarDrawer: PropTypes.bool.isRequired,
   _cmdmostrarDrawer: PropTypes.func.isRequired,
-  _cmdresetDrawer: PropTypes.func.isRequired
+  _cmdresetDrawer: PropTypes.func.isRequired,
+  auth: PropTypes.bool.isRequired
 };
 
 export default withStyles(styles)(superiorMain);
