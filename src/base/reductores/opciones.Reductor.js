@@ -1,7 +1,4 @@
-import {
-  MOSTRAR_DRAWER,
-  RESET_DRAWER
-} from '../acciones/constantes';
+import { MOSTRAR_DRAWER, RESET_DRAWER } from '../acciones/constantes';
 
 const initialState = {
   abiertoDrawer: false

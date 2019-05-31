@@ -1,6 +1,4 @@
-import {
-  ESTADO_RECIBE
-} from '../acciones/constantes';
+import { ESTADO_RECIBE } from '../acciones/constantes';
 
 const initialState = {
   catEstado: []
