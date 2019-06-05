@@ -5,6 +5,6 @@ import App from '../../contenedores/Rutas';
 describe('Rutas en SINTRIGA', () => {
   let rutas = shallow(<App />);
   it('contiene las rutas', () => {
-    expect(rutas.find('Route')).toHaveLength(5);
+    expect(rutas.find('Route')).toHaveLength(6);
   });
 });
