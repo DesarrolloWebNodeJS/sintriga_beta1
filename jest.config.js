@@ -14,7 +14,7 @@ module.exports = {
     '^react-native$': 'react-native-web'
   },
   notify: true,
-  setupTestFrameworkScriptFile: './src/__tests__/setup/setupEnzyme.js',
+  setupFilesAfterEnv: ['./src/__tests__/setup/setupEnzyme.js'],
   snapshotSerializers: [
     'enzyme-to-json/serializer'
   ],
