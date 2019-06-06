@@ -3,8 +3,7 @@
     "name": "mongods",
     "host": "localhost",
     "port": 27017,
-    "url": "mongodb://localhost:27017/api-sintriga2",
-    "database": "api-sintriga2",
+    "url": "${MONGO_URL}",
     "connector": "mongodb"
   }
 }
