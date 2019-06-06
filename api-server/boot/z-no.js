@@ -1,6 +1,6 @@
-import accepts from 'accepts';
+const accepts = require('accepts');
 // TODO: Handlear estos mensajes en el frontend.
-export default function fourOhFour(app) {
+module.exports = function fourOhFour(app) {
   app.all('*', function(req, res) {
     const accept = accepts(req);
     const type = accept.type('html', 'json', 'text');
@@ -19,7 +19,7 @@ export default function fourOhFour(app) {
     res.setHeader('Content-Type', 'text/plain');
     return res.send('404 path not found');
   });
-}
+};
 
 console.log('====================================');
 console.log('> BOOT: 404 [✓]');
