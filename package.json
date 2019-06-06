@@ -98,14 +98,15 @@
   "private": true,
   "repository": "git@github.com:fizzvr/sintriga.git",
   "scripts": {
-    "backend-start": "nodemon --exec babel-node api-server/server.js",
+    "backend-dev": "nodemon api-server/server.js",
+    "backend-run": "node api-server/server.js",
     "deploy": "gh-pages -b master -d build",
     "frontend-build": "node scripts/build.js",
     "frontend-start": "node scripts/start.js",
     "predeploy": "npm run build",
     "test": "node scripts/test.js --env=jsdom"
   },
-  "version": "0.2.0",
+  "version": "0.2.1",
   "browserslist": {
     "production": [
       ">0.2%",
