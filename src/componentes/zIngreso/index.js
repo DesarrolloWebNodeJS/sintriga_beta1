@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { _cmdSistemaIngresar } from '../../base/acciones/ingreso.Acciones';
+import { _cmdSistemaIngresar, _cmdSistemaSalir } from '../../base/acciones/ingreso.Acciones';
 import { _cmdlimpioAlerta } from '../../base/acciones/alerta.Acciones';
 
 import ingresoMain from './ingresoMain';
@@ -15,6 +15,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       _cmdSistemaIngresar,
+      _cmdSistemaSalir,
       _cmdlimpioAlerta
     },
     dispatch

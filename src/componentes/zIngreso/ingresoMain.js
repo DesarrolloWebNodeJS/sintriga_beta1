@@ -15,6 +15,8 @@ class ingresoMain extends Component {
 
   componentDidMount() {
     this.props._cmdlimpioAlerta();
+    // Es necesario limpiar los tokens al inicio?
+    // this.props._cmdSistemaSalir();
   }
 
   render() {
@@ -32,6 +34,7 @@ class ingresoMain extends Component {
 
 ingresoMain.propTypes = {
   _cmdSistemaIngresar: PropTypes.func.isRequired,
+  _cmdSistemaSalir: PropTypes.func.isRequired,
   _cmdlimpioAlerta: PropTypes.func.isRequired,
   tipo: PropTypes.string.isRequired,
   mensaje: PropTypes.string.isRequired,
