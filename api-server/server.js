@@ -12,10 +12,11 @@ log.enabled = true;
 
 const app = loopback();
 const isBeta = !!process.env.BETA;
+process.env.PORT = 5000;
 
 expressState.extend(app);
 app.set('state namespace', '__sintriga__');
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 5000);
 app.use(loopback.token({
   model: app.models.accessToken
 }));
