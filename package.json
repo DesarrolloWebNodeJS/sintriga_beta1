@@ -106,7 +106,7 @@
     "predeploy": "npm run build",
     "test": "node scripts/test.js --env=jsdom"
   },
-  "version": "0.2.1",
+  "version": "0.2.2",
   "browserslist": {
     "production": [
       ">0.2%",
