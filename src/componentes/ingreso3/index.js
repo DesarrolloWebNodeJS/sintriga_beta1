@@ -14,32 +14,31 @@ const styles = theme => ({
   layout: {
     width: 'auto',
     display: 'block',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
-    [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
+    marginLeft: theme.spacing(3),
+    marginRight: theme.spacing(3),
+    [theme.breakpoints.up(400 + theme.spacing(3) * 2)]: {
       width: 400,
       marginLeft: 'auto',
       marginRight: 'auto'
     }
   },
   paper: {
-    marginTop: theme.spacing.unit * 8,
+    marginTop: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme
-      .spacing.unit * 3}px`
+    padding: `${theme.spacing(2)}px ${theme.spacing(3)}px ${theme.spacing(3)}px`
   },
   avatar: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing(),
     backgroundColor: theme.palette.secondary.main
   },
   form: {
     width: '100%',
-    marginTop: theme.spacing.unit
+    marginTop: theme.spacing()
   },
   submit: {
-    marginTop: theme.spacing.unit * 3
+    marginTop: theme.spacing(3)
   }
 });
 
@@ -50,8 +49,8 @@ class SignIn extends Component {
       email: '',
       password: ''
     };
-    this.cmdAceptar = this.cmdAceptar.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.cmdAceptar = this.cmdAceptar.bind(this);
   }
 
   handleChange(e) {
@@ -82,7 +81,7 @@ class SignIn extends Component {
             <Avatar className={classes.avatar}>
               <LockIcon />
             </Avatar>
-            <Typography variant='headline'>Iniciar Sesión</Typography>
+            <Typography variant='h4'>Iniciar Sesión</Typography>
             <form className={classes.form}>
               <FormControl fullWidth margin='normal' required>
                 <InputLabel htmlFor='email'>Correo Electrónico</InputLabel>
