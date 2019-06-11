@@ -97,7 +97,8 @@ class superiorMain extends Component {
       abiertoDrawer,
       _cmdmostrarDrawer,
       propmostrarDrawer,
-      auth
+      auth,
+      _cmdSistemaSalir
     } = this.props;
 
     const { anchorEl } = this.state;
@@ -188,7 +189,7 @@ class superiorMain extends Component {
                       <MenuIcono />
                     </IconButton>
                   </Tooltip>
-                  <Button color='secondary' onClick={this.handleChange}>
+                  <Button color='secondary' component={Link} onClick={_cmdSistemaSalir} to='./' variant='outlined'>
                     Salir
                   </Button>
                 </span>
@@ -209,6 +210,7 @@ class superiorMain extends Component {
                     component={Link}
                     onClick={this.handleChange}
                     to='./ingreso'
+                    variant='outlined'
                     >
                     Ingresar
                   </Button>
@@ -248,7 +250,8 @@ superiorMain.propTypes = {
   propmostrarDrawer: PropTypes.bool.isRequired,
   _cmdmostrarDrawer: PropTypes.func.isRequired,
   _cmdresetDrawer: PropTypes.func.isRequired,
-  auth: PropTypes.bool.isRequired
+  auth: PropTypes.bool.isRequired,
+  _cmdSistemaSalir: PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(superiorMain);

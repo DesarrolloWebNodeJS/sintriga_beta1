@@ -1,6 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 // import { _cmdsatisfactoriaAlerta, _cmderrorAlerta, _cmdadvertenciaAlerta, _cmdinfoAlerta, _cmdlimpioAlerta } from '../../base/acciones/alerta.Acciones';
+import { _cmdSistemaSalir } from '../../base/acciones/ingreso.Acciones';
 import { _cmdmostrarNuevo } from '../../base/acciones/series.Acciones';
 import { _cmdmostrarDrawer, _cmdresetDrawer } from '../../base/acciones/opciones.Acciones';
 import superiorMain from './superiorMain';
@@ -18,6 +19,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
+      _cmdSistemaSalir,
       _cmdmostrarNuevo,
       _cmdmostrarDrawer,
       _cmdresetDrawer
