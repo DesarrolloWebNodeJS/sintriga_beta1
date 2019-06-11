@@ -1,10 +1,4 @@
 <p align="center">
-  <a href="https://desarrollowebnodejs.github.io/">
-    <img alt="desarrollo web nodejs" src="https://img9.uploadhouse.com/fileuploads/26959/2695971975bcaa663cd5794358e8f1643840cca6.jpeg" width="500">
-  </a>
-</p>
-
-<p align="center">
 	<h3 align="center">Desarrollo Web NodeJS</h3>
 </p>
 
@@ -24,48 +18,6 @@
 	# Verifica NodeJS
 	node -v
 	```
-
-## Desarrollo
-
-1.  Clonar este repositorio
-
-	```bash
-	git clone https://github.com/DesarrolloWebNodeJS/sintriga.git
-	cd sintriga
-	```
-
-1.  Instalar dependencias NodeJS
-
-	```
-	npm install
-	```
-+Nota: Si usas [Yarn](https://yarnpkg.com/), puedes correr con el comando `yarn`.
-
-1. Renombrar el archivo *ejemplo.env* a *.env*, contiene variables de entorno que se cargaran con el módulo **dotenv**.
-
-1. Correr el servidor
-
-	```
-	## Hack Frontend
-	npm runfrontend-start
-
-	## Contruir Frontend
-	npm runfrontend-build
-
-	## Run/Hack Backend
-	npm run backend-start
-
-	```
-
-1. Para realizar peticiones al *backend* se configura en la base del *frontend* la **BaseURL** de axios en:
-	```
-	// NOTA: Apunta a la IP real del servidor donde se aloja express.
-	const axiosInstance = axios.create({
-		baseURL: 'http://192.168.100.10:5000/api/'
-	});
-	```
-1. Frontend en [http://localhost:4000/](http://localhost:4000/)
-1. Backend en [http://localhost:5000/](http://localhost:5000/)
 
 ## Contribuyendo 
 Quieres ayudar? ¡Genial! Hay muchas formas de hacerlo:
