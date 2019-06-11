@@ -43,14 +43,26 @@ const styles = theme => ({
 });
 
 class SignIn extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      auth: false
     };
-    this.handleChange = this.handleChange.bind(this);
     this.cmdAceptar = this.cmdAceptar.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  cmdAceptar(e) {
+    e.preventDefault();
+    this.setState = ({ auth: true });
+    const { email, password } = this.state;
+    let datos = {
+      email,
+      password
+    };
+    this.props.cmdSistemaIngresar(datos);
   }
 
   handleChange(e) {
@@ -59,21 +71,8 @@ class SignIn extends Component {
     });
   }
 
-  cmdAceptar(e) {
-    e.preventDefault();
-    let datos = {
-      email: this.state.email,
-      password: this.state.password
-    };
-    this.props.cmdSistemaIngresar(datos);
-    this.setState = {
-      email: '',
-      password: ''
-    };
-  }
-
   render() {
-    const { classes } = this.props;
+    const { classes, auth } = this.props;
     return (
       <React.Fragment>
         <main className={classes.layout}>
@@ -85,7 +84,12 @@ class SignIn extends Component {
             <form className={classes.form}>
               <FormControl fullWidth margin='normal' required>
                 <InputLabel htmlFor='email'>Correo Electrónico</InputLabel>
-                <Input autoComplete='email' id='email' name='email' onChange={e => this.handleChange(e)}/>
+                <Input
+                  autoComplete='email'
+                  id='email'
+                  name='email'
+                  onChange={this.handleChange}
+                />
               </FormControl>
               <FormControl fullWidth margin='normal' required>
                 <InputLabel htmlFor='password'>Contraseña</InputLabel>
@@ -93,7 +97,7 @@ class SignIn extends Component {
                   autoComplete='current-password'
                   id='password'
                   name='password'
-                  onChange={e => this.handleChange(e)}
+                  onChange={this.handleChange}
                   type='password'
                 />
               </FormControl>
@@ -107,6 +111,12 @@ class SignIn extends Component {
                 >
                 Ingresar
               </Button>
+              {auth && (
+                <span>
+                  Conectando...
+                  <img alt='Cargando' src='data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==' />
+                </span>
+              )}
             </form>
           </Paper>
         </main>
@@ -117,7 +127,8 @@ class SignIn extends Component {
 
 SignIn.propTypes = {
   classes: PropTypes.object.isRequired,
-  cmdSistemaIngresar: PropTypes.func.isRequired
+  cmdSistemaIngresar: PropTypes.func.isRequired,
+  auth: PropTypes.bool.isRequired
 };
 
 export default withStyles(styles)(SignIn);
