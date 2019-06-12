@@ -24,7 +24,7 @@ class ingresoMain extends Component {
     return (
       <Fondo imagenes={[lander1, lander2, lander3, lander4]}>
         {auth && <Redirect to='/series2019' />}
-        {!auth && <IngresoUno cmdSistemaIngresar={_cmdSistemaIngresar}/>}
+        {!auth && <IngresoUno auth={auth} cmdSistemaIngresar={_cmdSistemaIngresar}/>}
         {mensaje.length > 1 && <Alerta mensaje={mensaje} tipo={tipo} />}
 
       </Fondo>
