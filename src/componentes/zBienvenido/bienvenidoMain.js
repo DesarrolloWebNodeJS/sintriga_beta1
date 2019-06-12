@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 // NOTA: Incluir el logo posteriormente
+import logo from '../../recursos/logo.jpg';
 import Escribiendo from '../typing';
 import Alerta from '../alerta';
 import './bienvenidoMain.css';
@@ -27,15 +28,22 @@ class bienvenidoMain extends Component {
   }
 
   render() {
-    const { mensaje, tipo } = this.props;
+    const { mensaje, tipo, auth } = this.props;
     return (
       <Fondo imagenes={[lander1, lander2, lander3, lander4]}>
         {mensaje.length > 1 && <Alerta mensaje={mensaje} tipo={tipo} />}
-        <div className='bienvenidoMain'>
-          <header className='bienvenidoHeader'>
+        <div className='box3 aire2'>
+          <div>
             <Escribiendo mensajes={mensajes} />
+          </div>
+          <div>
+            <img alt='logo' className='inicioLogo' src={logo} />
+          </div>
+        </div>
+        {auth ? (
+          <div className='box2 aire2'>
             <Button
-            color='secondary'
+              color='secondary'
               component={Link}
               style={{
                 borderRadius: '20px',
@@ -46,45 +54,38 @@ class bienvenidoMain extends Component {
               >
               ver series
             </Button>
-            <div style={{ display: 'flex' }}>
-              <div style={{ marginRight: '0.5em' }}>
-                <Button
-                  color='secondary'
-                  component={Link}
-                  style={{
-                    borderRadius: '20px',
-                    fontWeight: '600'
-                  }}
-                  to='/ingreso'
-                  variant='contained'
-                  >
-                  ¿ya tienes cuenta? ingresa
-                </Button>
-              </div>
-                <Button
-                  className='bienvenidoAire'
-                  color='primary'
-                  component={Link}
-                  style={{
-                    borderRadius: '20px',
-                    fontWeight: '600'
-                  }}
-                  to='/registro'
-                  variant='contained'
-                  >
-                  ¿eres nuevo? registrate
-                </Button>
-            </div>
-            <a
-              className='bienvenidoLink'
-              href='https://fb/sintriga'
-              rel='noopener noreferrer'
-              target='_blank'
+          </div>
+        ) : (
+          <div className='box2 aire2'>
+            <Button
+              color='secondary'
+              component={Link}
+              style={{
+                borderRadius: '20px',
+                fontWeight: '600',
+                margin: '15px'
+              }}
+              to='/ingreso'
+              variant='contained'
               >
-              Visítanos en Facebook
-            </a>
-          </header>
-        </div>
+              ¿ya tienes cuenta? ingresa
+            </Button>
+            <Button
+              className='bienvenidoAire'
+              color='primary'
+              component={Link}
+              style={{
+                borderRadius: '20px',
+                fontWeight: '600',
+                margin: '15px'
+              }}
+              to='/registro'
+              variant='contained'
+              >
+              ¿eres nuevo? registrate
+            </Button>
+          </div>
+        )}
       </Fondo>
     );
   }
@@ -93,7 +94,8 @@ class bienvenidoMain extends Component {
 bienvenidoMain.propTypes = {
   _cmdgetEstado: PropTypes.func.isRequired,
   tipo: PropTypes.string.isRequired,
-  mensaje: PropTypes.string.isRequired
+  mensaje: PropTypes.string.isRequired,
+  auth: PropTypes.bool.isRequired
 };
 
 export default bienvenidoMain;

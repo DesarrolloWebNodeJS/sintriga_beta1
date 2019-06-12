@@ -6,7 +6,8 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = state => ({
   tipo: state.alerta.tipo,
-  mensaje: state.alerta.mensaje
+  mensaje: state.alerta.mensaje,
+  auth: state.ingreso.auth
 });
 
 const mapDispatchToProps = dispatch =>
