@@ -1,23 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Typography from '@material-ui/core/Typography';
 import Typist from 'react-typist';
 
 const Escribiendo = ({ mensajes }) => {
   return (
-    <div style={{ color: '#FFC107', fontFamily: 'Gabriola', minWidth: '450px'}}>
+    <div style={{fontFamily: 'Rubik', textAlign: 'end'}}>
+      <Typography style={{color: '#f8f8f8'}} variant='h4'>
+        SERIES DE INTRIGA
+      </Typography>
+      <Typography color='secondary' variant='h6'>
+      <b>INTRIGA</b>, <b>CRIMEN</b> y <b>CIENCIA</b>
+      </Typography>
+
+      <Typography color='secondary' gutterBottom variant='subtitle2'>
       <Typist cursor={{ show: false }}>
-        <span>Apasionados por la intriga,</span>
-        <Typist.Backspace count={11} delay={2000} />
-        <span>el crimen</span>
-        <Typist.Backspace count={0} delay={2000} />
-        <span> y la ciencia.</span>
+        <p><span aria-label='tv' role='img'>📺</span> {mensajes[0]}</p>
+        <p><span aria-label='primer' role='img'>🥇</span> {mensajes[1]}</p>
+        <p><span aria-label='listo' role='img'>✅</span> {mensajes[2]}</p>
       </Typist>
-      <Typist cursor={{ show: false }}>
-        <p> {mensajes[0]}</p>
-      </Typist>
-      <Typist cursor={{ show: false }}>
-        <p> {mensajes[1]}</p>
-      </Typist>
+      </Typography>
     </div>
   );
 };
