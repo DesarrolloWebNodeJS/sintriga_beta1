@@ -22,7 +22,7 @@ export const _cmdSistemaIngresar = item => {
         });
         dispatch({
           type: ALERTA_SATISFACTORIA,
-          mensaje: 'ingreso correcto cód. ' + response.status
+          payload: 'ingreso correcto cód. ' + response.status
         });
       })
       .catch(error => {
@@ -31,8 +31,13 @@ export const _cmdSistemaIngresar = item => {
             type: ALERTA_ERROR,
             payload: error.response.data.error.message
           });
+        } else if (error.request) {
+          dispatch({
+            type: ALERTA_ERROR,
+            payload: error.message
+          });
         } else {
-          console.log(error);
+          console.log(error.message);
         }
       });
     dispatch({
@@ -54,7 +59,7 @@ export const _cmdSistemaSalir = () => {
         });
         dispatch({
           type: ALERTA_SATISFACTORIA,
-          mensaje: response.data
+          payload: response.data
         });
       })
       .catch(error => {

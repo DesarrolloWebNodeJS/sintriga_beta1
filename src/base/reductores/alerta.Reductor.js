@@ -16,22 +16,22 @@ export default (state = initialState, action) => {
     case ALERTA_SATISFACTORIA:
       return {
         tipo: 'success',
-        mensaje: action.mensaje
+        mensaje: action.payload
       };
     case ALERTA_ERROR:
       return {
         tipo: 'error',
-        mensaje: 'Error. Cód. ' + action.payload
+        mensaje: 'Error. ' + action.payload
       };
     case ALERTA_ADVERTENCIA:
       return {
         tipo: 'warning',
-        mensaje: action.mensaje
+        mensaje: action.payload
       };
     case ALERTA_INFO:
       return {
         tipo: 'info',
-        mensaje: action.mensaje
+        mensaje: action.payload
       };
     case ALERTA_LIMPIAR:
       return {

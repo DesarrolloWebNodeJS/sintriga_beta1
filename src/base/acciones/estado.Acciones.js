@@ -15,11 +15,23 @@ export const _cmdgetEstado = idComponente => {
           payload: response.data
         });
         dispatch({
-          type: ALERTA_INFO, mensaje: 'Versión ' + response.data.appVersion
+          type: ALERTA_INFO, payload: 'Versión ' + response.data.appVersion
         });
       })
-      .catch((error) => {
-        dispatch({ type: ALERTA_ERROR, codigo: error.message + ' 45' + idComponente});
+      .catch(error => {
+        if (error.response) {
+          dispatch({
+            type: ALERTA_ERROR,
+            payload: error.response.data.error.message
+          });
+        } else if (error.request) {
+          dispatch({
+            type: ALERTA_ERROR,
+            payload: error.message + ' 45' + idComponente
+          });
+        } else {
+          console.log(error.message);
+        }
       });
       dispatch({
         type: ALERTA_LIMPIAR
