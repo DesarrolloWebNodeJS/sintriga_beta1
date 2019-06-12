@@ -50,25 +50,22 @@ class SignIn extends Component {
       password: '',
       auth: false
     };
-    this.cmdAceptar = this.cmdAceptar.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  cmdAceptar(e) {
-    e.preventDefault();
-    this.setState = ({ auth: true });
+  handleChange(e) {
+    this.setState({[e.target.name]: e.target.value});
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
     const { email, password } = this.state;
     let datos = {
       email,
       password
     };
     this.props.cmdSistemaIngresar(datos);
-  }
-
-  handleChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
   }
 
   render() {
@@ -81,7 +78,7 @@ class SignIn extends Component {
               <LockIcon />
             </Avatar>
             <Typography variant='h4'>Iniciar Sesión</Typography>
-            <form className={classes.form}>
+            <form className={classes.form} onSubmit={this.handleSubmit}>
               <FormControl fullWidth margin='normal' required>
                 <InputLabel htmlFor='email'>Correo Electrónico</InputLabel>
                 <Input
@@ -89,6 +86,7 @@ class SignIn extends Component {
                   id='email'
                   name='email'
                   onChange={this.handleChange}
+                  value={this.state.email}
                 />
               </FormControl>
               <FormControl fullWidth margin='normal' required>
@@ -99,8 +97,10 @@ class SignIn extends Component {
                   name='password'
                   onChange={this.handleChange}
                   type='password'
+                  value={this.state.password}
                 />
               </FormControl>
+              <input type='submit' value='Submit' />
               <Button
                 className={classes.submit}
                 color='secondary'
