@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
-// NOTA: Incluir el logo posteriormente
-import logo from '../../recursos/logo.jpg';
 import Escribiendo from '../typing';
 import Alerta from '../alerta';
 import './bienvenidoMain.css';
@@ -12,10 +10,12 @@ import lander1 from '../../recursos/lander1.jpg';
 import lander2 from '../../recursos/lander2.jpg';
 import lander3 from '../../recursos/lander3.png';
 import lander4 from '../../recursos/lander4.png';
+import Avatarbig from '../avatarbig';
 
 const mensajes = [
-  'Disfruta de alrededor de 4000 series que tenemos a tu disposición.',
-  'Únete a nuestro grupo de WhatsApp.'
+  'Alrededor de 4000 series.',
+  'Agrega favoritos, series nuevas y más.',
+  'Únete al legendario grupo de WhatsApp.'
 ];
 
 class bienvenidoMain extends Component {
@@ -33,15 +33,12 @@ class bienvenidoMain extends Component {
       <Fondo imagenes={[lander1, lander2, lander3, lander4]}>
         {mensaje.length > 1 && <Alerta mensaje={mensaje} tipo={tipo} />}
         <div className='box3 aire2'>
-          <div>
-            <Escribiendo mensajes={mensajes} />
-          </div>
-          <div>
-            <img alt='logo' className='inicioLogo' src={logo} />
-          </div>
+          <Avatarbig/>
+          <Escribiendo mensajes={mensajes} />
         </div>
         {auth ? (
-          <div className='box2 aire2'>
+          <div className='box2'>
+            <div>{' '}</div>
             <Button
               color='secondary'
               component={Link}
@@ -50,15 +47,15 @@ class bienvenidoMain extends Component {
                 fontWeight: '600'
               }}
               to='/series2019'
-              variant='outlined'
+              variant='contained'
               >
               ver series
             </Button>
           </div>
         ) : (
-          <div className='box2 aire2'>
+          <div className='box2'>
             <Button
-              color='secondary'
+              color='primary'
               component={Link}
               style={{
                 borderRadius: '20px',
@@ -72,7 +69,7 @@ class bienvenidoMain extends Component {
             </Button>
             <Button
               className='bienvenidoAire'
-              color='primary'
+              color='secondary'
               component={Link}
               style={{
                 borderRadius: '20px',
