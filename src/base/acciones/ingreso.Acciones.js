@@ -43,7 +43,7 @@ export const _cmdSistemaIngresar = item => {
 
 export const _cmdSistemaSalir = () => {
   return (dispatch, getState, apiSeries) => {
-    console.log(getState().auth);
+    console.log(getState());
     const token = localStorage.getItem('token');
     apiSeries
       .post(`/api/cat_usuarios/logout?access_token=${token}`)

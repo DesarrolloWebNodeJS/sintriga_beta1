@@ -16,7 +16,6 @@ export default function(state = initialState, action) {
       };
     case SISTEMA_SALIR:
       return {
-        ...state,
         auth: false
       };
     default:
