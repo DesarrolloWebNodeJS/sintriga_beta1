@@ -229,7 +229,7 @@ class drawerMain extends Component {
           </Drawer>
           <main className={classes.content}>
             <div className={classes.appBarSpacer} />
-            <Typography gutterBottom variant='display2'>
+            <Typography gutterBottom variant='h1'>
               Orders
             </Typography>
             <Series />
@@ -243,7 +243,8 @@ class drawerMain extends Component {
 drawerMain.propTypes = {
   classes: PropTypes.object.isRequired,
   abiertoDrawer: PropTypes.bool,
-  _cmdmostrarDrawer: PropTypes.func
+  _cmdmostrarDrawer: PropTypes.func,
+  auth: PropTypes.bool.isRequired
 };
 
 export default withStyles(styles)(drawerMain);
