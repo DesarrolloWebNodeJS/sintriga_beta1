@@ -7,7 +7,7 @@ const Escribiendo = ({ mensajes }) => {
   return (
     <div style={{fontFamily: 'Rubik', textAlign: 'end'}}>
       <Typography style={{color: '#f8f8f8'}} variant='h4'>
-        SERIES DE INTRIGA
+      {'⭐'} Series de Intriga {'⭐'}
       </Typography>
       <Typography color='secondary' variant='h6'>
       <b>INTRIGA</b>, <b>CRIMEN</b> y <b>CIENCIA</b>

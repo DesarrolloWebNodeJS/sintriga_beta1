@@ -11,9 +11,9 @@ const BienvenidoPagina = () => {
   return (
     <div>
       <Helmet>
-        <title>Bienvenido | SINTRIGA</title>
+        <title>{'⭐'} Series de Intriga {'⭐'} [CLUB]</title>
       </Helmet>
-      <Superior propEstilo={{ background: 'rgba(0, 0, 0, 0.63)', borderBottom: '0.5px solid #ffc107' }} propmostrarDrawer={false} propPosicion='static' propTitulo='Series de Intriga'/>
+      <Superior propEstilo={{ background: 'rgba(0, 0, 0, 0.63)', borderBottom: '0.5px solid #ffc107' }} propmostrarDrawer={false} propPosicion='static' propTitulo='⭐Series de Intriga⭐ [Club]'/>
       <Bienvenido />
       <Inferior />
     </div>
