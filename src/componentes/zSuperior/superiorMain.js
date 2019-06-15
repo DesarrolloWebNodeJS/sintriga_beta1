@@ -13,7 +13,6 @@ import AyudaIcono from '@material-ui/icons/LiveHelp';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import Apps from '@material-ui/icons/Apps';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
@@ -195,14 +194,19 @@ class superiorMain extends Component {
                 </span>
               ) : (
                 <span>
-                  <Tooltip title='Facebook'>
-                    <IconButton aria-label='Facebook' color='secondary'>
-                      <Apps />
+                  <Tooltip title='WhatsApp'>
+                    <IconButton aria-label='Whatsapp' color='secondary' href='https://' target='_blank'>
+                      <i className='fab fa-whatsapp' />
                     </IconButton>
                   </Tooltip>
-                  <Tooltip title='Whatsapp'>
-                    <IconButton aria-label='Whatsapp' color='secondary'>
-                      <Apps />
+                  <Tooltip title='Discord'>
+                    <IconButton aria-label='Discord' color='secondary' href='https://discord.gg/YHQsVcJ' target='_blank'>
+                      <i className='fab fa-discord' />
+                    </IconButton>
+                  </Tooltip>
+                  <Tooltip title='Facebook'>
+                    <IconButton aria-label='Facebook' color='secondary' href='https://www.facebook.com/sintriga' target='_blank'>
+                      <i className='fab fa-facebook' />
                     </IconButton>
                   </Tooltip>
                   <Button
