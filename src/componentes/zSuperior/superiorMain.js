@@ -11,6 +11,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import NuevoIcono from '@material-ui/icons/AddCircle';
 import AyudaIcono from '@material-ui/icons/LiveHelp';
 import MenuItem from '@material-ui/core/MenuItem';
+import ExitToApp from '@material-ui/icons/ExitToApp';
+import TouchApp from '@material-ui/icons/TouchApp';
 import Menu from '@material-ui/core/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { Link } from 'react-router-dom';
@@ -188,36 +190,61 @@ class superiorMain extends Component {
                       <MenuIcono />
                     </IconButton>
                   </Tooltip>
-                  <Button color='secondary' component={Link} onClick={_cmdSistemaSalir} to='./' variant='outlined'>
-                    Salir
-                  </Button>
+                  <Tooltip title='Salir'>
+                    <IconButton
+                      aria-label='Salir'
+                      color='secondary'
+                      component={Link}
+                      onClick={_cmdSistemaSalir}
+                      to='./'
+                      >
+                      <ExitToApp />
+                    </IconButton>
+                  </Tooltip>
                 </span>
               ) : (
                 <span>
                   <Tooltip title='WhatsApp'>
-                    <IconButton aria-label='Whatsapp' color='secondary' href='https://' target='_blank'>
+                    <IconButton
+                      aria-label='Whatsapp'
+                      color='secondary'
+                      href='https://'
+                      target='_blank'
+                      >
                       <i className='fab fa-whatsapp' />
                     </IconButton>
                   </Tooltip>
                   <Tooltip title='Discord'>
-                    <IconButton aria-label='Discord' color='secondary' href='https://discord.gg/YHQsVcJ' target='_blank'>
+                    <IconButton
+                      aria-label='Discord'
+                      color='secondary'
+                      href='https://discord.gg/YHQsVcJ'
+                      target='_blank'
+                      >
                       <i className='fab fa-discord' />
                     </IconButton>
                   </Tooltip>
                   <Tooltip title='Facebook'>
-                    <IconButton aria-label='Facebook' color='secondary' href='https://www.facebook.com/sintriga' target='_blank'>
+                    <IconButton
+                      aria-label='Facebook'
+                      color='secondary'
+                      href='https://www.facebook.com/sintriga'
+                      target='_blank'
+                      >
                       <i className='fab fa-facebook' />
                     </IconButton>
                   </Tooltip>
-                  <Button
-                    color='secondary'
-                    component={Link}
-                    onClick={this.handleChange}
-                    to='./ingreso'
-                    variant='outlined'
-                    >
-                    Ingresar
-                  </Button>
+                  <Tooltip title='Ingresar'>
+                    <IconButton
+                      aria-label='Ingresar'
+                      color='secondary'
+                      component={Link}
+                      onClick={this.handleChange}
+                      to='./ingreso'
+                      >
+                      <TouchApp />
+                    </IconButton>
+                  </Tooltip>
                 </span>
               )}
               <Tooltip title='Ayuda'>
