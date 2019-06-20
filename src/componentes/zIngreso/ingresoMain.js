@@ -15,8 +15,6 @@ class ingresoMain extends Component {
 
   componentDidMount() {
     this.props._cmdlimpioAlerta();
-    // Es necesario limpiar los tokens al inicio?
-    // this.props._cmdSistemaSalir();
   }
 
   render() {
@@ -26,7 +24,6 @@ class ingresoMain extends Component {
         {auth && <Redirect to='/series2019' />}
         {!auth && <IngresoUno auth={auth} cmdSistemaIngresar={_cmdSistemaIngresar}/>}
         {mensaje.length > 1 && <Alerta mensaje={mensaje} tipo={tipo} />}
-
       </Fondo>
     );
   }

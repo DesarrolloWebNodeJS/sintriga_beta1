@@ -70,13 +70,6 @@ const styles = theme => ({
   },
   colorDrawer: {
     color: '#ffc107'
-  },
-  // NOTA: las siguientes dos clases son para el chart y una tabla
-  chartContainer: {
-    marginLeft: -22
-  },
-  tableContainer: {
-    height: 320
   }
 });
 
