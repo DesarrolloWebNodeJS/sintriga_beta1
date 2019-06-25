@@ -5,13 +5,14 @@ module.exports = {
     connector: 'mongodb',
     connectionTimeout: 10000,
     url: secrets.mongods
-  },
-  mail: {
-    connector: 'mail',
-    transport: {
-      type: 'ses',
-      accessKeyId: process.env.SES_ID,
-      secretAccessKey: process.env.SES_SECRET
-    }
   }
+  // ,
+  // mail: {
+  //   connector: 'mail',
+  //   transport: {
+  //     type: 'ses',
+  //     accessKeyId: process.env.SES_ID,
+  //     secretAccessKey: process.env.SES_SECRET
+  //   }
+  // }
 };
