@@ -24,8 +24,7 @@ const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-  .BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const moment = require('moment');
 const now = moment(new Date()).format('YYYY-MM-DD');
 
@@ -433,10 +432,10 @@ module.exports = function(webpackEnv) {
       ]
     },
     plugins: [
-      new BundleAnalyzerPlugin({
-        openAnalyzer: false,
-        open: false
-      }),
+      // new BundleAnalyzerPlugin({
+      //   openAnalyzer: false,
+      //   open: false
+      // }),
       new webpack.BannerPlugin({
         banner:
           '\n' +
