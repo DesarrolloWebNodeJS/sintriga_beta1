@@ -1,0 +1,45 @@
+{
+  "name": "cat_series",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "titulo": {
+      "type": "string",
+      "index": {
+        "mongodb": {
+          "unique": true,
+          "background": true
+        }
+      },
+      "require": true
+    },
+    "descripcion": {
+      "type": "string",
+      "default": ""
+    },
+    "favorito": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "catCapitulos": {
+      "type": "hasMany",
+      "model": "cat_capitulos",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

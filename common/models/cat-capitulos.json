@@ -1,0 +1,47 @@
+{
+  "name": "cat_capitulos",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nombre": {
+      "type": "string",
+      "index": {
+        "mongodb": {
+          "unique": true,
+          "background": true,
+          "sparse": true
+        }
+      },
+      "require": true
+    },
+    "drive": {
+      "type": "string",
+      "default": ""
+    },
+    "mega": {
+      "type": "string",
+      "default": ""
+    },
+    "visto": {
+      "type": "boolean",
+      "default": false
+    },
+    "intrigas": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "validations": [],
+  "relations": {
+    "catSeries": {
+      "type": "belongsTo",
+      "model": "cat_series",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
