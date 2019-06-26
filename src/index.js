@@ -6,7 +6,9 @@ import { Provider } from 'react-redux';
 // import Rutas from './contenedores/Rutas';
 import configurarBase from './base';
 import './sintriga.css';
-import * as serviceWorker from './serviceWorker';
+// TODO: Verifcar Service workers
+// import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from './sw1';
 
 const store = configurarBase();
 
