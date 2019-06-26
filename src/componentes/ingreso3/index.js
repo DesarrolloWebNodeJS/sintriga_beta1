@@ -5,10 +5,10 @@ import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
-import LockIcon from '@material-ui/icons/LockOutlined';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
+import logo from '../../recursos/logo.jpg';
 
 const styles = theme => ({
   layout: {
@@ -74,9 +74,7 @@ class SignIn extends Component {
       <React.Fragment>
         <main className={classes.layout}>
           <Paper className={classes.paper}>
-            <Avatar className={classes.avatar}>
-              <LockIcon />
-            </Avatar>
+            <Avatar className={classes.avatar} src={logo} />
             <Typography variant='h4'>Iniciar Sesión</Typography>
             <form className={classes.form} onSubmit={this.handleSubmit}>
               <FormControl fullWidth margin='normal' required>
@@ -100,7 +98,6 @@ class SignIn extends Component {
                   value={this.state.password}
                 />
               </FormControl>
-              <input type='submit' value='Submit' />
               <Button
                 className={classes.submit}
                 color='secondary'
