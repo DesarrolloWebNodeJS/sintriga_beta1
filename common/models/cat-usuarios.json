@@ -6,13 +6,38 @@
     "validateUpsert": true
   },
   "properties": {
+    "email": {
+      "type": "string",
+      "index": {
+        "mongodb": {
+          "unique": true,
+          "background": true,
+          "sparse": true
+        }
+      }
+    },
+    "username": {
+      "type": "string",
+      "index": {
+        "mongodb": {
+          "unique": true,
+          "background": true
+        }
+      },
+      "require": true
+    },
+    "picture": {
+      "type": "string",
+      "default": ""
+    },
     "rol": {
       "type": "string",
       "required": true,
       "default": "intrigado"
     },
     "alta": {
-      "type": "date"
+      "type": "date",
+      "defaultFn": "now"
     }
   },
   "validations": [],
