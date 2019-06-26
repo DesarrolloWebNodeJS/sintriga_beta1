@@ -1,6 +1,6 @@
 {
   "author": "Vladimir Rodríguez <fizzvr@gmail.com>",
-  "homepage": "http://sintriga.club",
+  "homepage": "https://seriesdeintriga.club",
   "dependencies": {
     "@material-ui/core": "^4.0.2",
     "@material-ui/icons": "^4.0.1",
@@ -99,14 +99,14 @@
   "repository": "git@github.com:fizzvr/sintriga.git",
   "scripts": {
     "backend-dev": "nodemon api-server/server.js",
-    "backend-run": "node api-server/server.js",
+    "backend-start": "node api-server/server.js",
     "deploy": "gh-pages -b master -d build",
     "frontend-build": "node scripts/build.js",
     "frontend-start": "node scripts/start.js",
     "predeploy": "npm run build",
     "test": "node scripts/test.js --env=jsdom"
   },
-  "version": "0.2.2",
+  "version": "0.2.3",
   "browserslist": {
     "production": [
       ">0.2%",
