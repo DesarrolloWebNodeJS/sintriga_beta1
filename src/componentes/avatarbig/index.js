@@ -17,7 +17,7 @@ export default function ImageAvatars() {
   return (
     <div>
       <Avatar
-        alt='Series de Intriga'
+        alt='Series Intriga'
         classes={{ root: classes.bigAvatar }}
         className='bounce-in-top'
         src={logo}

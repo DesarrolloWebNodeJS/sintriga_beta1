@@ -8,7 +8,7 @@ const ProgramaPagina = () => {
   return (
     <div>
       <Helmet>
-        <title>Series de Intriga | SINTRIGA</title>
+        <title>Series Intriga | SINTRIGA</title>
       </Helmet>
       <Drawer />
       <Inferior />
