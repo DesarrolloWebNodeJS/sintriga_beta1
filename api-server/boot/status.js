@@ -2,6 +2,9 @@ var parseurl = require('parseurl');
 var moment = require('moment');
 var timeago = require('timeago.js');
 const pkg = require('../../package.json');
+const createDebugger = require('debug');
+
+const log = createDebugger('sintriga:boot');
 
 module.exports = function(app) {
   const inicio = moment(new Date('01/01/2019')).format('YYYY-MM-DD');
@@ -42,10 +45,14 @@ module.exports = function(app) {
   });
 
   app.get('/test', function(req, res) {
-    res.send('Esta es una PRUEBA. Numero de peticiones a esta URL:  ' + req.session.views['/test'] + ' veces. ');
+    res.send(
+      'Esta es una PRUEBA. Numero de peticiones a esta URL:  ' +
+        req.session.views['/test'] +
+        ' veces. '
+    );
   });
 };
 
-console.log('====================================');
-console.log('> BOOT: Estado [✓]');
-console.log('====================================');
+log('====================================');
+log('> BOOT: Habilitar Estado [✓]');
+log('====================================');
