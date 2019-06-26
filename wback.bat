@@ -18,4 +18,4 @@ echo '---         `Y$$b.`        NodeJS    ---'
 echo '---            `"Y$b._      Quito    ---'
 echo '---                `"""      Ecuador ---'
 echo '----------------------------------------'
-npm run backend-run
+npm run backend-dev
