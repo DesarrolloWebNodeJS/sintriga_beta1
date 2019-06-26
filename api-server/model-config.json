@@ -43,5 +43,13 @@
   "cat_usuarios": {
     "dataSource": "mongods",
     "public": true
+  },
+  "cat_series": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "cat_capitulos": {
+    "dataSource": "mongods",
+    "public": false
   }
 }
