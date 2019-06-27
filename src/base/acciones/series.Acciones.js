@@ -13,27 +13,39 @@ import {
 
 export const _cmdgetSeries = () => {
   return (dispatch, getState, apiSeries) => {
+    const seriesApp = getState().series.catSeries;
+    // const version = getState().estado.catEstado.appVersion;
+    dispatch({
+      type: CAT_SERIES_SOLICITA
+    });
+    dispatch({
+      type: ALERTA_LIMPIAR
+    });
+    if (seriesApp.length === 0) {
     apiSeries
-      .get('/api/notes')
+      .get('/api/cat_series')
       .then(response => {
         dispatch({
           type: CAT_SERIES_RECIBE,
           payload: response.data
         });
         dispatch({
-          type: ALERTA_SATISFACTORIA, mensaje: 'Series cargadas correctamente.'
+          type: ALERTA_SATISFACTORIA, payload: 'Series cargadas correctamente'
         });
       })
       .catch(() => {
         dispatch({ type: ALERTA_ERROR, codigo: 4520});
         dispatch({ type: CAT_SERIES_ERROR });
       });
+    } else {
       dispatch({
-        type: CAT_SERIES_SOLICITA
+        type: CAT_SERIES_RECIBE,
+        payload: seriesApp
       });
       dispatch({
-        type: ALERTA_LIMPIAR
+        type: ALERTA_SATISFACTORIA, payload: 'Series cargadas correctamente'
       });
+    }
   };
 };
 
