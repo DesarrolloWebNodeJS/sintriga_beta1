@@ -6,7 +6,6 @@ import Superior from '../zSuperior';
 import Series from '../zSeries';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import ListItem from '@material-ui/core/ListItem';
@@ -55,6 +54,7 @@ const styles = theme => ({
   },
   appBarSpacer: theme.mixins.toolbar,
   content: {
+    paddingTop: '50px',
     flexGrow: 1,
     height: '100vh',
     overflow: 'auto'
@@ -221,11 +221,7 @@ class drawerMain extends Component {
             </List>
           </Drawer>
           <main className={classes.content}>
-            <div className={classes.appBarSpacer} />
-            <Typography gutterBottom variant='h1'>
-              Orders
-            </Typography>
-            <Series />
+            <Series/>
           </main>
         </div>
       </React.Fragment>
