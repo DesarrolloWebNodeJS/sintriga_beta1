@@ -34,7 +34,7 @@ export const _cmdgetSeries = () => {
         });
       })
       .catch(() => {
-        dispatch({ type: ALERTA_ERROR, codigo: 4520});
+        dispatch({ type: ALERTA_ERROR, payload: 4520});
         dispatch({ type: CAT_SERIES_ERROR });
       });
     } else {
