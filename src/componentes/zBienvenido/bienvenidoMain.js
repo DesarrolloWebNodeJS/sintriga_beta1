@@ -15,7 +15,7 @@ import Avatarbig from '../avatarbig';
 const mensajes = [
   'Alrededor de 4000 series.',
   'Agrega favoritos, series nuevas y más.',
-  'Únete al legendario grupo de WhatsApp.'
+  'Únete a nuestro legendario grupo de WhatsApp.'
 ];
 
 class bienvenidoMain extends Component {
