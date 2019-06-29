@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import logo from '../../recursos/logo.jpg';
@@ -25,8 +24,3 @@ export default function ImageAvatars() {
     </div>
   );
 }
-
-ImageAvatars.propTypes = {
-  classes: PropTypes.object.isRequired,
-  className: PropTypes.string
-};
