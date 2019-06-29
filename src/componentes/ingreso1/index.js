@@ -11,8 +11,8 @@ import Button from '@material-ui/core/Button';
 const styles = theme => ({
   root: {
     ...theme.mixins.gutters(),
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2,
+    paddingTop: theme.spacing() * 2,
+    paddingBottom: theme.spacing() * 2,
     position: 'absolute',
     width: '400px',
     top: '50%',
@@ -24,10 +24,10 @@ const styles = theme => ({
     border: '0.5px solid #ffc107'
   },
   formControl: {
-    margin: theme.spacing.unit
+    margin: theme.spacing()
   },
   formControl2: {
-    margin: theme.spacing.unit * 3
+    margin: theme.spacing() * 3
   }
 });
 
