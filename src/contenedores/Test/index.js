@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { _cmdgetSeries, _cmdmostrarNuevo, _cmdpostSeries } from '../../base/acciones/series.Acciones';
 import tema from '../../tema';
-import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import Alerta from '../../componentes/alerta';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
+import lander1 from '../../recursos/lander1.jpg';
 
 const styles = {
   root: {
@@ -28,49 +30,59 @@ const styles = {
 function mapStateToProps(state) {
   return {
     tipo: state.alerta.tipo,
-    mensaje: state.alerta.mensaje
+    mensaje: state.alerta.mensaje,
+    catSeries: state.series.catSeries
   };
 }
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      _cmdgetSeries,
+      _cmdmostrarNuevo,
+      _cmdpostSeries
+    },
+    dispatch
+  );
 
 class PruebaPagina extends Component {
+  componentDidMount() {
+    this.props._cmdgetSeries();
+  }
   render() {
-    const { classes, mensaje, tipo } = this.props;
+    const { classes, mensaje, tipo, catSeries } = this.props;
     return (
       <div>
         <Helmet>
           <title>Test | SINTRIGA</title>
         </Helmet>
         <div>
-          <AppBar position='static'>
-            <Toolbar>
-              <IconButton
-                aria-label='Menu'
-                className={classes.menuButton}
-                color='secondary'
-                >
-                <MenuIcon />
-              </IconButton>
-              <Typography
-                className={classes.flex}
-                color='secondary'
-                variant='title'
-                >
-                Test Pagina
-              </Typography>
-              <Button color='secondary'>Ingreso</Button>
-            </Toolbar>
-          </AppBar>
+          <Alerta mensaje={mensaje} tipo={tipo} />
         </div>
-        <Typography className={classes.flex} variant='title'>
-          Test Pagina
-        </Typography>
-        <Alerta mensaje={!mensaje ? 'Test Pagina' : ''} tipo={tipo} />
-        <Button color='primary' variant='contained'>
-          Primario
-        </Button>
-        <Button color='secondary' variant='contained'>
-          Secundario
-        </Button>
+        <div>
+          <GridList className={classes.gridList} cols={4} spacing={2}>
+            {catSeries.map(tile => (
+              <GridListTile
+                key={tile.id}
+                >
+                <img alt={tile.titulo} src={lander1} />
+                <GridListTileBar
+                  actionIcon={
+                    <IconButton color='secondary'>
+                      <StarBorderIcon />
+                    </IconButton>
+                  }
+                  actionPosition='left'
+                  classes={{
+                    title: classes.title,
+                    root: classes.titleBar
+                  }}
+                  title={tile.titulo}
+                  titlePosition='top'
+                />
+              </GridListTile>
+            ))}
+          </GridList>
+        </div>
       </div>
     );
   }
@@ -78,7 +90,9 @@ class PruebaPagina extends Component {
 PruebaPagina.propTypes = {
   classes: PropTypes.object.isRequired,
   tipo: PropTypes.string.isRequired,
-  mensaje: PropTypes.string.isRequired
+  mensaje: PropTypes.string.isRequired,
+  catSeries: PropTypes.array.isRequired,
+  _cmdgetSeries: PropTypes.func.isRequired
 };
 
-export default tema(withStyles(styles)(connect(mapStateToProps)(PruebaPagina)));
+export default tema(withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(PruebaPagina)));
