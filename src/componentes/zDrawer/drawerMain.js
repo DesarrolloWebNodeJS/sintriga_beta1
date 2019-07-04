@@ -18,6 +18,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+// import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -47,23 +48,24 @@ const styles = theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
     }),
-    width: theme.spacing.unit * 7,
+    width: theme.spacing() * 7,
     [theme.breakpoints.up('sm')]: {
-      width: theme.spacing.unit * 9
+      width: theme.spacing() * 9
     }
   },
   appBarSpacer: theme.mixins.toolbar,
   content: {
     paddingTop: '50px',
     flexGrow: 1,
-    height: '100vh',
-    overflow: 'auto'
+    overflow: 'auto',
+    height: '90vh'
   },
   fondoDrawer: {
     backgroundColor: 'rgba(0, 0, 0, 0.80)'
   },
   bordeDerecho: {
-    borderRight: '0.5px solid #ffc107'
+    borderRight: '0.5px solid #ffc107',
+    height: '100vh'
   },
   colorDivider: {
     borderBottom: '0.5px solid #ffc107'
@@ -74,6 +76,13 @@ const styles = theme => ({
 });
 
 class drawerMain extends Component {
+
+  handlearPDF() {
+    return (
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea unde officiis iure, sed natus, nam optio laborum suscipit quia a temporibus! Praesentium rerum eum atque, ipsum similique dolorem quas dolor?</p>
+    );
+  }
+
   render() {
     const { classes, abiertoDrawer, _cmdmostrarDrawer } = this.props;
     return (
@@ -85,7 +94,7 @@ class drawerMain extends Component {
               borderBottom: '0.5px solid #ffc107'
             }}
             propmostrarDrawer={true}
-            propTitulo='Series'
+            propTitulo=''
           />
           <Drawer
             classes={{
@@ -97,7 +106,7 @@ class drawerMain extends Component {
               paperAnchorDockedLeft: classes.bordeDerecho
             }}
             open={abiertoDrawer}
-            variant='permanent'
+            variant='temporary'
             >
             <div className={classes.toolbarIcon}>
               <IconButton
@@ -109,8 +118,10 @@ class drawerMain extends Component {
               </IconButton>
             </div>
             <List>
-              <div>
-                <ListItem button>
+                <ListItem
+                  button
+                  onClick={this.handlearPDF}
+                  >
                   <ListItemIcon className={classes.colorDrawer}>
                     <DashboardIcon />
                   </ListItemIcon>
@@ -176,7 +187,6 @@ class drawerMain extends Component {
                     primary='Reportes'
                   />
                 </ListItem>
-              </div>
             </List>
             <Divider className={classes.colorDivider} />
             <List>
@@ -206,22 +216,11 @@ class drawerMain extends Component {
                     primary='Last quarter'
                   />
                 </ListItem>
-                <ListItem button>
-                  <ListItemIcon className={classes.colorDrawer}>
-                    <AssignmentIcon />
-                  </ListItemIcon>
-                  <ListItemText
-                    classes={{
-                      primary: classes.colorDrawer
-                    }}
-                    primary='Year-end sale'
-                  />
-                </ListItem>
               </div>
             </List>
           </Drawer>
           <main className={classes.content}>
-            <Series/>
+            <Series />
           </main>
         </div>
       </React.Fragment>
@@ -231,9 +230,8 @@ class drawerMain extends Component {
 
 drawerMain.propTypes = {
   classes: PropTypes.object.isRequired,
-  abiertoDrawer: PropTypes.bool,
-  _cmdmostrarDrawer: PropTypes.func,
-  auth: PropTypes.bool.isRequired
+  abiertoDrawer: PropTypes.bool.isRequired,
+  _cmdmostrarDrawer: PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(drawerMain);

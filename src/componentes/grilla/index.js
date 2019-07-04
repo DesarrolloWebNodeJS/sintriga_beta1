@@ -5,18 +5,21 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
+import StarRateIcon from '@material-ui/icons/StarRate';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import lander1 from '../../recursos/lander1.jpg';
 
-const styles = ({
+const styles = theme => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    backgroundColor: theme.palette.secondary.dark
   },
   gridList: {
-    width: 500,
-    height: 450,
+    width: '100%',
+    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: 'translateZ(0)'
   },
   titleBar: {
@@ -25,28 +28,33 @@ const styles = ({
       'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)'
   },
   icon: {
-    color: '#ffc107'
+    color: '#f44336'
+  },
+  title: {
+    color: theme.palette.secondary.main
   }
 });
 
 function AdvancedGridList(props) {
   const { classes, tileData } = props;
-  const favorito = true;
   return (
     <div className={classes.root}>
-      <GridList spacing={2} style={{width: '100%'}}>
+      <GridList className={classes.gridList} cols={4} spacing={2}>
         {tileData.map(tile => (
-          <GridListTile cols={favorito ? 2 : 1} key='' rows={favorito ? 2 : 1}>
-            <img alt={tile.content} src='' />
+          <GridListTile key={tile.id}>
+            <img alt={tile.titulo} src={lander1} />
             <GridListTileBar
               actionIcon={
                 <IconButton className={classes.icon}>
-                  <StarBorderIcon />
+                  {tile.favorito ? <StarRateIcon /> : <StarBorderIcon />}
                 </IconButton>
               }
               actionPosition='left'
-              className={classes.titleBar}
-              title={tile.title}
+              classes={{
+                title: classes.title,
+                root: classes.titleBar
+              }}
+              title={tile.titulo}
               titlePosition='top'
             />
           </GridListTile>
